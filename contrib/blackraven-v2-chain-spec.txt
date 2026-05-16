@@ -1,0 +1,49 @@
+BlackRaven (BLKR) v2 — chain design (locked for transition)
+============================================================
+
+Base: NeoxaChain/Neoxa (MIT). Independent GitHub repo (not a GitHub "Fork" link).
+
+Identity
+--------
+  Name:     BlackRaven
+  Ticker:   BLKR
+  Website:  https://blackraven.network/
+
+Consensus / economics
+---------------------
+  Algorithm:              KawPoW
+  Max supply:             32,000,000,000 BLKR
+  Initial block reward:   5,000 BLKR (base subsidy before split)
+  Block time:             ~1 minute
+  Halving interval:       ~3,200,000 blocks (~6 years at 1 min)
+  Dev fee:                0.5% of block subsidy (50 basis points), forever
+                          — same % after every halving (fee = subsidy * 0.005)
+                          — used for exchange listings, promotion, ecosystem
+  Dev fee payout:         separate coinbase output (FounderPayment); address TBD
+  Smartnodes:             DISABLED (fSmartnodesEnabled=false; no ProTx, no SN reward %)
+  Miner share:            99.5% of block subsidy (remainder after 0.5% dev fee)
+  InstantSend/ChainLocks: OFF (no LLMQ quorums without smartnodes)
+
+Network
+-------
+  P2P port:               8669
+  RPC port:               8668
+  Message start (magic):  BLKR (42 4c 4b 52)
+  Address prefix:         B (Base58 P2PKH 25)
+  DNS seeds:              seed1.blackraven.network, seed2.blackraven.network
+
+Binaries
+--------
+  blackravend, blackraven-qt, blackraven-cli, blackraven-tx
+  Datadir: ~/.blackraven/
+
+Phases
+------
+  1. Rebrand (done on branch v2/blackraven-transition)
+  2. chainparams — new genesis, dev address, strip smartnode % (in progress)
+  3. regtest -> testnet -> mainnet
+  4. Infra: seeds, explorer, pool, releases
+
+Notes
+-----
+  V1 Ravencoin-lineage repo (BlackRavenNetwork/BlackRaven) is separate from this tree.
