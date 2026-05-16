@@ -7,7 +7,7 @@
 #include "chainparams.h"
 #include "random.h"
 
-#include "test/test_neoxa.h"
+#include "test/test_blackraven.h"
 
 #include <boost/test/unit_test.hpp>
 

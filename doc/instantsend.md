@@ -12,8 +12,8 @@ When a "Transaction Lock" occurs the hash of the related transaction is broadcas
 * `zmqpubhashtxlock`: publishes the transaction hash when locked via InstantSend
 
 This mechanism has been integrated into Bitcore-Node-BlackRaven which allows for notification to be broadcast through Insight API in one of two ways:
-* WebSocket: [https://github.com/neoxa/insight-api-neoxa#web-socket-api](https://github.com/neoxa/insight-api-neoxa#web-socket-api)
-* API: [https://github.com/neoxa/insight-api-neoxa#instantsend-transactions](https://github.com/neoxa/insight-api-neoxa#instantsend-transactions)
+* WebSocket: [https://github.com/blackraven/insight-api-blackraven#web-socket-api](https://github.com/blackraven/insight-api-blackraven#web-socket-api)
+* API: [https://github.com/blackraven/insight-api-blackraven#instantsend-transactions](https://github.com/blackraven/insight-api-blackraven#instantsend-transactions)
 
 #### Command line option
 

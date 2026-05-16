@@ -62,8 +62,8 @@ static int AppInitRawTx(int argc, char* argv[])
         // First part of help message is specific to this utility
         std::string strUsage = strprintf(_("%s blackraven-tx utility version"), _(PACKAGE_NAME)) + " " + FormatFullVersion() + "\n\n" +
             _("Usage:") + "\n" +
-              "  blackraven-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded neoxa transaction") + "\n" +
-              "  blackraven-tx [options] -create [commands]   " + _("Create hex-encoded neoxa transaction") + "\n" +
+              "  blackraven-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded blackraven transaction") + "\n" +
+              "  blackraven-tx [options] -create [commands]   " + _("Create hex-encoded blackraven transaction") + "\n" +
               "\n";
 
         fprintf(stdout, "%s", strUsage.c_str());
@@ -758,7 +758,7 @@ static int CommandLineRawTx(int argc, char* argv[])
             if (argc < 2)
                 throw std::runtime_error("too few parameters");
 
-            // param: hex-encoded neoxa transaction
+            // param: hex-encoded blackraven transaction
             std::string strHexTx(argv[1]);
             if (strHexTx == "-")                 // "-" implies standard input
                 strHexTx = readStdin();

@@ -7,7 +7,7 @@ set -e
 set -x
 
 BUILD_PATH="/tmp/rabuild"
-PACKAGE_NAME="neoxa"
+PACKAGE_NAME="blackraven"
 SRC_PATH=`pwd`
 SRC_DEB=$SRC_PATH/contrib/debian
 SRC_DOC=$SRC_PATH/doc

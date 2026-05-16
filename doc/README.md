@@ -1,7 +1,7 @@
 BlackRaven
 ==========
 
-This is the official reference wallet for BlackRaven digital currency and comprises the backbone of the BlackRaven peer-to-peer network. You can [download BlackRaven](https://www.neoxa.org/downloads/) or [build it yourself](#building) using the guides below.
+This is the official reference wallet for BlackRaven digital currency and comprises the backbone of the BlackRaven peer-to-peer network. You can [download BlackRaven](https://www.blackraven.org/downloads/) or [build it yourself](#building) using the guides below.
 
 Running
 ---------------------

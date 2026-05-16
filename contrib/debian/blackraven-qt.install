@@ -1,6 +1,6 @@
-usr/local/bin/neoxa-qt usr/bin
-share/pixmaps/neoxa32.xpm usr/share/pixmaps
-share/pixmaps/neoxa16.xpm usr/share/pixmaps
-share/pixmaps/neoxa128.png usr/share/pixmaps
-debian/neoxa-qt.desktop usr/share/applications
-debian/neoxa-qt.protocol usr/share/kde4/services/
+usr/local/bin/blackraven-qt usr/bin
+share/pixmaps/blackraven32.xpm usr/share/pixmaps
+share/pixmaps/blackraven16.xpm usr/share/pixmaps
+share/pixmaps/blackraven128.png usr/share/pixmaps
+debian/blackraven-qt.desktop usr/share/applications
+debian/blackraven-qt.protocol usr/share/kde4/services/

@@ -25,8 +25,8 @@ packages:
 - "rename"
 - "ccache"
 remotes:
-- "url": "https://github.com/The-BlackRaven-Endeavor/neoxa.git"
-  "dir": "neoxa"
+- "url": "https://github.com/BlackRavenNetwork/BlackRaven-V2.git"
+  "dir": "blackraven"
 files: []
 script: |
   WRAP_DIR=$HOME/wrapped
@@ -135,7 +135,7 @@ script: |
   create_per-host_linker_wrapper "2000-01-01 12:00:00"
   export PATH=${WRAP_DIR}:${PATH}
 
-  cd neoxa
+  cd blackraven
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do

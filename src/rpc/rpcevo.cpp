@@ -100,7 +100,7 @@ std::string GetHelpString(int nParamNum, std::string strParamName)
 {
     static const std::map<std::string, std::string> mapParamHelp = {
         {"collateralAddress",
-            "%d. \"collateralAddress\"        (string, required) The neoxa address to send the collateral to.\n"
+            "%d. \"collateralAddress\"        (string, required) The blackraven address to send the collateral to.\n"
         },
 		{"collateralAmount",
 			"%d. \"collateralAmount\"        (numeric, required) The collateral amount to be sent to collateral address.\n"
@@ -148,15 +148,15 @@ std::string GetHelpString(int nParamNum, std::string strParamName)
             "                              between 0.00 and 100.00.\n"
         },
         {"ownerAddress",
-            "%d. \"ownerAddress\"             (string, required) The neoxa address to use for payee updates and proposal voting.\n"
+            "%d. \"ownerAddress\"             (string, required) The blackraven address to use for payee updates and proposal voting.\n"
             "                              The private key belonging to this address must be known in your wallet. The address must\n"
             "                              be unused and must differ from the collateralAddress\n"
         },
         {"payoutAddress_register",
-            "%d. \"payoutAddress\"            (string, required) The neoxa address to use for smartnode reward payments.\n"
+            "%d. \"payoutAddress\"            (string, required) The blackraven address to use for smartnode reward payments.\n"
         },
         {"payoutAddress_update",
-            "%d. \"payoutAddress\"            (string, required) The neoxa address to use for smartnode reward payments.\n"
+            "%d. \"payoutAddress\"            (string, required) The blackraven address to use for smartnode reward payments.\n"
             "                              If set to an empty string, the currently active payout address is reused.\n"
         },
         {"proTxHash",
@@ -1065,7 +1065,7 @@ void protx_quick_setup_help(CWallet* const pwallet)
 			"  \"collateralAmount\":      (numberic) The collateral Amount was used for this protx.\n"
 			"  \"operationPubkey\":       (string) The public key from bls generate.\n"
 			"  \"operationSecret\":       (string) The secret key from bls generate.\n"
-			"  \"neoxa.conf\" :       (string) The content of neoxa.conf to be used in vps node.\n"
+			"  \"blackraven.conf\" :       (string) The content of blackraven.conf to be used in vps node.\n"
             "}\n"
 			"\nExamples:\n"
             + HelpExampleCli("protx", "quick_setup \"collateralHash\" \"collateralIndex\" \"ipAndPort\" \"feeSourceAddress\"")
@@ -1114,7 +1114,7 @@ UniValue signMessage(CWallet * const pwallet, std::string strAddress, std::strin
 
 UniValue createConfigFile(string blsPrivateKey, string ip, string address) {
 
-	string fileName = get_current_dir() + "/" + address + "_neoxa.conf";
+	string fileName = get_current_dir() + "/" + address + "_blackraven.conf";
 	ofstream configFile(fileName);
 	string username = generateRandomString(10, false);
 	string password = generateRandomString(20, true);
@@ -1184,7 +1184,7 @@ UniValue protx_quick_setup(const JSONRPCRequest& request) {
 	result.push_back(Pair("operatorPublic", blsKeys["public"].get_str()));
 	result.push_back(Pair("operatorSecret", blsKeys["secret"].get_str()));
 	UniValue config = createConfigFile( blsKeys["secret"].get_str(),request.params[3].get_str(),  prepareResult["collateralAddress"].get_str());
-	result.push_back(Pair("neoxa.conf",config.get_str()));
+	result.push_back(Pair("blackraven.conf",config.get_str()));
 
 	return result;
 }

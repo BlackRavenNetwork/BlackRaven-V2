@@ -8,7 +8,7 @@ Transifex is setup to monitor the GitHub repo for updates, and when code contain
 
 Multiple language support is critical in assisting BlackRaven’s global adoption, and growth. One of BlackRaven’s greatest strengths is cross-border money transfers, any help making that easier is greatly appreciated.
 
-See the [Transifex BlackRaven project](https://www.transifex.com/projects/p/neoxa/) to assist in translations. You should also join the translation mailing list for announcements - see details below.
+See the [Transifex BlackRaven project](https://www.transifex.com/projects/p/blackraven/) to assist in translations. You should also join the translation mailing list for announcements - see details below.
 
 ### Writing code with translations
 We use automated scripts to help extract translations in both Qt, and non-Qt source files. It is rarely necessary to manually edit the files in `src/qt/locale/`. The translation source files must adhere to the following format:
@@ -36,7 +36,7 @@ When an updated source file is merged into the GitHub repo, Transifex will autom
 
 To create the pull-request, use the following commands:
 ```
-git add src/qt/neoxastrings.cpp src/qt/locale/blackraven_en.ts
+git add src/qt/BLKRtrings.cpp src/qt/locale/blackraven_en.ts
 git commit
 ```
 
@@ -44,7 +44,7 @@ git commit
 ### Creating a Transifex account
 Visit the [Transifex Signup](https://www.transifex.com/signup/) page to create an account. Take note of your username and password, as they will be required to configure the command-line tool.
 
-You can find the BlackRaven translation project at [https://www.transifex.com/projects/p/neoxa/](https://www.transifex.com/projects/p/neoxa/).
+You can find the BlackRaven translation project at [https://www.transifex.com/projects/p/blackraven/](https://www.transifex.com/projects/p/blackraven/).
 
 ### Installing the Transifex client command-line tool
 The client it used to fetch updated translations. If you are having problems, or need more details, see [http://docs.transifex.com/developer/client/setup](http://docs.transifex.com/developer/client/setup)
@@ -107,4 +107,4 @@ To create a new language template, you will need to edit the languages manifest 
 **Note:** that the language translation file **must end in `.qm`** (the compiled extension), and not `.ts`.
 
 ### Questions and general assistance
-Check official forum at [https://www.neoxa.org/forum/topic/blackraven-worldwide-collaboration.88/](https://www.neoxa.org/forum/topic/blackraven-worldwide-collaboration.88/).
+Check official forum at [https://www.blackraven.org/forum/topic/blackraven-worldwide-collaboration.88/](https://www.blackraven.org/forum/topic/blackraven-worldwide-collaboration.88/).

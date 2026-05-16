@@ -42,9 +42,9 @@ BlackRaven is now available at `./src/blackravend`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=neoxarpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/BlackRaven/neoxa.conf"
+    echo -e "rpcuser=blackravenrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/BlackRaven/blackraven.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/BlackRaven/neoxa.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/BlackRaven/blackraven.conf"
 
 The first time you run blackravend, it will start downloading the blockchain. This process could take several hours.
 
@@ -55,6 +55,6 @@ You can monitor the download process by looking at the debug.log file:
 Other commands:
 -------
 
-    ./src/blackravend -daemon # Starts the neoxa daemon.
+    ./src/blackravend -daemon # Starts the blackraven daemon.
     ./src/blackraven-cli --help # Outputs a list of command-line options.
     ./src/blackraven-cli help # Outputs a list of RPC commands when the daemon is running.

@@ -415,7 +415,7 @@ void CKeePassIntegrator::rpcSetLogin(const SecureString& sWalletPass, const Secu
     LogPrint(BCLog::KEEPASS, "CKeePassIntegrator::rpcSetLogin -- send Url: %s\n", sUrl);
 
     //request.addStrParameter("SubmitUrl", sSubmitUrl); // Is used to construct the entry title
-    request.addStrParameter("Login", SecureString("neoxa"));
+    request.addStrParameter("Login", SecureString("blackraven"));
     request.addStrParameter("Password", sWalletPass);
     if(sEntryId.size() != 0)
     {

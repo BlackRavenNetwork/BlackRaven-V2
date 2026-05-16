@@ -13,11 +13,11 @@ fi
 
 echo "Rebranding under $ROOT ..."
 
-# File names containing neoxa (excluding .git)
+# File names containing blackraven (excluding .git)
 while IFS= read -r -d '' f; do
   base="$(basename "$f")"
   dir="$(dirname "$f")"
-  newbase="${base//neoxa/blackraven}"
+  newbase="${base//blackraven/blackraven}"
   newbase="${newbase//BlackRaven/Blackraven}"
   newbase="${newbase//BLACKRAVEN/BLACKRAVEN}"
   if [[ "$base" != "$newbase" ]]; then
@@ -42,8 +42,8 @@ find . -type f \( \
     -e 's/blackravend/blackravend/g' \
     -e 's/BLACKRAVEN/BLACKRAVEN/g' \
     -e 's/BLKR/BLKR/g' \
-    -e 's/neoxa\.net/blackraven.network/g' \
-    -e 's/neoxa\.gitbook/blackraven.network/g'
+    -e 's/blackraven\.net/blackraven.network/g' \
+    -e 's/blackraven\.gitbook/blackraven.network/g'
 
 # Config header guard (sed may have over-replaced; fix common cases)
 if [[ -f src/config/blackraven-config.h.in ]]; then

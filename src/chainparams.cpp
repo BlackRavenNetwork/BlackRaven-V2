@@ -434,7 +434,7 @@ public:
         pchMessageStart[3] = 0x52; // R
         nDefaultPort = 8669;
         nPruneAfterHeight = 100000;
-        // TODO(BLKR v2): Mine a new genesis (new timestamp/message) before mainnet; asserts below are Neoxa placeholders.
+        // TODO(BLKR v2): Mine a new genesis (new timestamp/message) before mainnet; asserts below are upstream placeholders.
         uint32_t nGenesisTime = 1651442858;
 
         genesis = CreateGenesisBlock(nGenesisTime, 3244753, 0x1e00ffff, 4, 5000 * COIN);

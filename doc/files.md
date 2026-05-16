@@ -4,7 +4,7 @@
 * blocks/rev000??.dat; block undo data (custom)
 * blocks/index/*; block index (LevelDB)
 * chainstate/*; block chain state database (LevelDB)
-* neoxa.conf: contains configuration settings for blackravend or blackraven-qt
+* blackraven.conf: contains configuration settings for blackravend or blackraven-qt
 * blackravend.pid: stores the process id of blackravend while running
 * database/*: BDB database environment; only used for wallet
 * db.log: wallet database log file

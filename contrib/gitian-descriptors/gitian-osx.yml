@@ -30,8 +30,8 @@ packages:
 - "fonts-tuffy"
 - "ccache"
 remotes:
-- "url": "https://github.com/The-BlackRaven-Endeavor/neoxa.git"
-  "dir": "neoxa"
+- "url": "https://github.com/BlackRavenNetwork/BlackRaven-V2.git"
+  "dir": "blackraven"
 files:
 - "MacOSX10.11.sdk.tar.gz"
 script: |
@@ -103,7 +103,7 @@ script: |
   create_per-host_faketime_wrappers "2000-01-01 12:00:00"
   export PATH=${WRAP_DIR}:${PATH}
 
-  cd neoxa
+  cd blackraven
   BASEPREFIX=`pwd`/depends
 
   mkdir -p ${BASEPREFIX}/SDKs

@@ -73,7 +73,7 @@ bool AppInit(int argc, char* argv[])
     //
     // Parameters
     //
-    // If Qt is used, parameters/neoxa.conf are parsed in qt/neoxa.cpp's main()
+    // If Qt is used, parameters/blackraven.conf are parsed in qt/blackraven.cpp's main()
     gArgs.ParseParameters(argc, argv);
 
     if (gArgs.IsArgSet("-printcrashinfo")) {

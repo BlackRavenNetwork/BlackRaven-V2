@@ -38,8 +38,8 @@ Sample initialization flow from _blackraven-qt_ console (this needs to be done o
  - Open console
  - Type "_keepass init_" in blackraven-qt console
  - Keepass pops up and asks for an association id, fill that in, for example, "_mydrkwallet_"
- - You should get a response like this "_Association successful. Id: mydrkwalletneoxa - Key: AgQkcs6cI7v9tlSYKjG/+s8wJrGALHl3jLosJpPLzUE=_"
- - Edit _neoxa.conf_ and fill in these values
+ - You should get a response like this "_Association successful. Id: mydrkwalletblackraven - Key: AgQkcs6cI7v9tlSYKjG/+s8wJrGALHl3jLosJpPLzUE=_"
+ - Edit _blackraven.conf_ and fill in these values
 ```
 keepass=1
 keepasskey=AgQkcs6cI7v9tlSYKjG/+s8wJrGALHl3jLosJpPLzUE=
@@ -55,4 +55,4 @@ At this point, the association is made. The next action depends on your particul
 
 At this point, the passphrase is stored in KeePassHttp. When Unlocking the wallet, one can use _keepass_ as the passphrase to trigger retrieval of the password. This works from the RPC commands as well as the GUI.
 
-Extended guide with screenshots is also available: https://www.neoxa.org/forum/threads/keepass-integration.3620/
+Extended guide with screenshots is also available: https://www.blackraven.org/forum/threads/keepass-integration.3620/

@@ -6,15 +6,15 @@ reset-files.bash
 *.tar.gz
 
 *.exe
-src/neoxa
-src/neoxad
-src/neoxa-cli
-src/neoxa-tx
-src/test/test_neoxa
-src/test/test_neoxa_fuzzy
-src/qt/test/test_neoxa-qt
+src/blackraven
+src/blackravend
+src/blackraven-cli
+src/blackraven-tx
+src/test/test_blackraven
+src/test/test_blackraven_fuzzy
+src/qt/test/test_blackraven-qt
 src/qt/res/css/colors/*
-src/bench/bench_neoxa
+src/bench/bench_blackraven
 
 # autoreconf
 Makefile.in
@@ -37,8 +37,8 @@ config.log
 config.status
 configure
 libtool
-src/config/neoxa-config.h
-src/config/neoxa-config.h.in
+src/config/blackraven-config.h
+src/config/blackraven-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -85,14 +85,14 @@ libconftest.dylib*
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-neoxa-qt
-neoxa-Qt.app
+blackraven-qt
+blackraven-Qt.app
 background.tiff*
 !/depends/Makefile
 
 # Unit-tests
 Makefile.test
-neoxa-qt_test
+blackraven-qt_test
 
 # Resources cpp
 qrc_*.cpp
@@ -106,7 +106,7 @@ build
 *.gcno
 *.gcda
 /*.info
-test_neoxa.coverage/
+test_blackraven.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -124,15 +124,15 @@ test/cache/*
 .autotools
 /doc/doxygen/
 
-libneoxaconsensus.pc
+libblackravenconsensus.pc
 contrib/devtools/split-debug.sh
-src/qt/neoxa-qt.bash
+src/qt/blackraven-qt.bash
 qa/pull-tester/tests-config.sh
 
 #development symlinks
-neoxa-cli
-neoxad
-neoxa-qt
+blackraven-cli
+blackravend
+blackraven-qt
 make
 
 /docker/bin
@@ -148,6 +148,6 @@ dist/
 *.conf
 .settings/language.settings.xml
 
-/neoxa.iml
+/blackraven.iml
 /testnet3_binary/
 /testnet4/

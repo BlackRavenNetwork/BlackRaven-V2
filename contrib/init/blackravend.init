@@ -1,36 +1,36 @@
 #!/usr/bin/env bash
 #
-#  neoxad The Neoxa Core server.
+#  blackravend The BlackRaven Core server.
 #
 #
 # chkconfig: 345 80 20
-# description: neoxad
-# processname: neoxad
+# description: blackravend
+# processname: blackravend
 #
 
 # Source function library.
 . /etc/init.d/functions
 
-# you can override defaults in /etc/sysconfig/neoxad, see below
-if [ -f /etc/sysconfig/neoxad ]; then
-        . /etc/sysconfig/neoxad
+# you can override defaults in /etc/sysconfig/blackravend, see below
+if [ -f /etc/sysconfig/blackravend ]; then
+        . /etc/sysconfig/blackravend
 fi
 
 RETVAL=0
 
-prog=neoxad
-# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/neoxad
-lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/neoxad}
+prog=blackravend
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/blackravend
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/blackravend}
 
-# neoxad defaults to /usr/bin/neoxad, override with BITCOIND_BIN
-neoxad=${BITCOIND_BIN-/usr/bin/neoxad}
+# blackravend defaults to /usr/bin/blackravend, override with BITCOIND_BIN
+blackravend=${BITCOIND_BIN-/usr/bin/blackravend}
 
-# neoxad opts default to -disablewallet, override with BITCOIND_OPTS
-neoxad_opts=${BITCOIND_OPTS--disablewallet}
+# blackravend opts default to -disablewallet, override with BITCOIND_OPTS
+blackravend_opts=${BITCOIND_OPTS--disablewallet}
 
 start() {
     echo -n $"Starting $prog: "
-    daemon $DAEMONOPTS $neoxad $neoxad_opts
+    daemon $DAEMONOPTS $blackravend $blackravend_opts
     RETVAL=$?
     echo
     [ $RETVAL -eq 0 ] && touch $lockfile

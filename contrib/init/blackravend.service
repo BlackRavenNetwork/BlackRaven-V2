@@ -1,15 +1,15 @@
 [Unit]
-Description=Neoxa's distributed currency daemon
+Description=BlackRaven's distributed currency daemon
 After=network.target
 
 [Service]
-User=neoxacore
-Group=neoxacore
+User=blackravencore
+Group=blackravencore
 
 Type=forking
-PIDFile=/var/lib/neoxad/neoxad.pid
-ExecStart=/usr/bin/neoxad -daemon -pid=/var/lib/neoxad/neoxad.pid \
--conf=/etc/neoxacore/neoxa.conf -datadir=/var/lib/neoxad -disablewallet
+PIDFile=/var/lib/blackravend/blackravend.pid
+ExecStart=/usr/bin/blackravend -daemon -pid=/var/lib/blackravend/blackravend.pid \
+-conf=/etc/blackravencore/blackraven.conf -datadir=/var/lib/blackravend -disablewallet
 
 Restart=always
 PrivateTmp=true

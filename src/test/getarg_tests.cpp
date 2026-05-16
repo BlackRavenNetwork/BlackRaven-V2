@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "util.h"
-#include "test/test_neoxa.h"
+#include "test/test_blackraven.h"
 
 #include <string>
 #include <vector>
@@ -20,7 +20,7 @@ static void ResetArgs(const std::string& strArg)
       boost::split(vecArg, strArg, boost::is_space(), boost::token_compress_on);
 
     // Insert dummy executable name:
-    vecArg.insert(vecArg.begin(), "testneoxa");
+    vecArg.insert(vecArg.begin(), "testblackraven");
 
     // Convert to char*:
     std::vector<const char*> vecChar;
@@ -125,7 +125,7 @@ BOOST_AUTO_TEST_CASE(intarg)
     BOOST_CHECK_EQUAL(gArgs.GetArg("-bar", 11), 0);
 }
 
-BOOST_AUTO_TEST_CASE(doubleneoxa)
+BOOST_AUTO_TEST_CASE(doubleblackraven)
 {
     ResetArgs("--foo");
     BOOST_CHECK_EQUAL(gArgs.GetBoolArg("-foo", false), true);

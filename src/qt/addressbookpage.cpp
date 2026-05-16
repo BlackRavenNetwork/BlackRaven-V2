@@ -232,7 +232,7 @@ void AddressBookPage::on_showAddressQRCode_clicked()
 
     dialog->setModel(model);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->setInfo(tr("QR code"), "neoxa:"+strAddress, "", strAddress);
+    dialog->setInfo(tr("QR code"), "blackraven:"+strAddress, "", strAddress);
     dialog->show();
 }
 

@@ -314,8 +314,8 @@ Clone the git repositories for BlackRaven and Gitian.
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/The-BlackRaven-Endeavor/neoxa
-git clone https://github.com/neoxa/gitian.sigs.git
+git clone https://github.com/BlackRavenNetwork/BlackRaven-V2
+git clone https://github.com/blackraven/gitian.sigs.git
 ```
 
 Setting up the Gitian image
@@ -376,12 +376,12 @@ tail -f var/build.log
 Output from `gbuild` will look something like
 
 ```bash
-    Initialized empty Git repository in /home/debian/gitian-builder/inputs/neoxa/.git/
+    Initialized empty Git repository in /home/debian/gitian-builder/inputs/blackraven/.git/
     remote: Counting objects: 57959, done.
     remote: Total 57959 (delta 0), reused 0 (delta 0), pack-reused 57958
     Receiving objects: 100% (57959/57959), 53.76 MiB | 484.00 KiB/s, done.
     Resolving deltas: 100% (41590/41590), done.
-    From https://github.com/The-BlackRaven-Endeavor/neoxa
+    From https://github.com/BlackRavenNetwork/BlackRaven-V2
     ... (new tags, new branch etc)
     --- Building for bionic amd64 ---
     Stopping target if it is up
@@ -407,18 +407,18 @@ and inputs.
 
 For example:
 ```bash
-URL=https://github.com/crowning-/neoxa.git
+URL=https://github.com/crowning-/blackraven.git
 COMMIT=b616fb8ef0d49a919b72b0388b091aaec5849b96
-./bin/gbuild --commit neoxa=${COMMIT} --url neoxa=${URL} ../neoxa/contrib/gitian-descriptors/gitian-linux.yml
-./bin/gbuild --commit neoxa=${COMMIT} --url neoxa=${URL} ../neoxa/contrib/gitian-descriptors/gitian-win.yml
-./bin/gbuild --commit neoxa=${COMMIT} --url neoxa=${URL} ../neoxa/contrib/gitian-descriptors/gitian-osx.yml
+./bin/gbuild --commit blackraven=${COMMIT} --url blackraven=${URL} ../blackraven/contrib/gitian-descriptors/gitian-linux.yml
+./bin/gbuild --commit blackraven=${COMMIT} --url blackraven=${URL} ../blackraven/contrib/gitian-descriptors/gitian-win.yml
+./bin/gbuild --commit blackraven=${COMMIT} --url blackraven=${URL} ../blackraven/contrib/gitian-descriptors/gitian-osx.yml
 ```
 
 Building fully offline
 -----------------------
 
 For building fully offline including attaching signatures to unsigned builds, the detached-sigs repository
-and the neoxa git repository with the desired tag must both be available locally, and then gbuild must be
+and the blackraven git repository with the desired tag must both be available locally, and then gbuild must be
 told where to find them. It also requires an apt-cacher-ng which is fully-populated but set to offline mode, or
 manually disabling gitian-builder's use of apt-get to update the VM build environment.
 
@@ -437,7 +437,7 @@ cd /path/to/gitian-builder
 LXC_ARCH=amd64 LXC_SUITE=bionic on-target -u root apt-get update
 LXC_ARCH=amd64 LXC_SUITE=bionic on-target -u root \
   -e DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends -y install \
-  $( sed -ne '/^packages:/,/[^-] .*/ {/^- .*/{s/"//g;s/- //;p}}' ../neoxa/contrib/gitian-descriptors/*|sort|uniq )
+  $( sed -ne '/^packages:/,/[^-] .*/ {/^- .*/{s/"//g;s/- //;p}}' ../blackraven/contrib/gitian-descriptors/*|sort|uniq )
 LXC_ARCH=amd64 LXC_SUITE=bionic on-target -u root apt-get -q -y purge grub
 LXC_ARCH=amd64 LXC_SUITE=bionic on-target -u root -e DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade
 ```
@@ -459,10 +459,10 @@ Then when building, override the remote URLs that gbuild would otherwise pull fr
 cd /some/root/path/
 git clone https://github.com/The-BlackRaven-Endeavor/blackraven-detached-sigs.git
 
-BTCPATH=/some/root/path/neoxa
+BTCPATH=/some/root/path/blackraven
 SIGPATH=/some/root/path/blackraven-detached-sigs
 
-./bin/gbuild --url neoxa=${BTCPATH},signature=${SIGPATH} ../neoxa/contrib/gitian-descriptors/gitian-win-signer.yml
+./bin/gbuild --url blackraven=${BTCPATH},signature=${SIGPATH} ../blackraven/contrib/gitian-descriptors/gitian-win-signer.yml
 ```
 
 Signing externally
@@ -489,6 +489,6 @@ Uploading signatures (not yet implemented)
 ---------------------
 
 In the future it will be possible to push your signatures (both the `.assert` and `.assert.sig` files) to the
-[neoxa/gitian.sigs](https://github.com/neoxa/gitian.sigs/) repository, or if that's not possible to create a pull
+[blackraven/gitian.sigs](https://github.com/blackraven/gitian.sigs/) repository, or if that's not possible to create a pull
 request.
 There will be an official announcement when this repository is online.

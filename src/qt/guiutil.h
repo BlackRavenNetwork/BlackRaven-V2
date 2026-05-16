@@ -85,7 +85,7 @@ namespace GUIUtil
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
-    // Parse "neoxa:" URI into recipient object, return true on successful parsing
+    // Parse "blackraven:" URI into recipient object, return true on successful parsing
     bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out);
     bool parseBitcoinURI(QString uri, SendCoinsRecipient *out);
     QString formatBitcoinURI(const SendCoinsRecipient &info);
@@ -159,7 +159,7 @@ namespace GUIUtil
     void concatenate(QPainter* painter, QString& strToCon, int static_width, int left_side, int right_size);
 
 	
-    // Open neoxa.conf
+    // Open blackraven.conf
     void openConfigfile();	
 
     // Browse backup folder

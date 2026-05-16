@@ -50,4 +50,4 @@ gh pr create --base main --head v2/blackraven-transition --title "..." --body ".
 
 ## 4. Optional: keep BlackRaven upstream for merges
 
-`upstream-neoxa` remote points at BlackRavenChain/BlackRaven for occasional reference (do not push there).
+`upstream-blackraven` remote points at BlackRavenNetwork/BlackRaven-V2 for occasional reference (do not push there).

@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Neoxa"
-            VALUE "FileDescription",    "neoxad (Neoxa node with a JSON-RPC server)"
+            VALUE "CompanyName",        "BlackRaven"
+            VALUE "FileDescription",    "blackravend (BlackRaven node with a JSON-RPC server)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "neoxad"
+            VALUE "InternalName",       "blackravend"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "neoxad.exe"
-            VALUE "ProductName",        "neoxad"
+            VALUE "OriginalFilename",   "blackravend.exe"
+            VALUE "ProductName",        "blackravend"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

@@ -44,7 +44,7 @@ This allows for running blackravend without having to do any manual configuratio
 relative to the data directory. `wallet` *only* supports relative paths.
 
 For an example configuration file that describes the configuration settings,
-see `contrib/debian/examples/neoxa.conf`.
+see `contrib/debian/examples/blackraven.conf`.
 
 Paths
 ---------------------------------
@@ -54,7 +54,7 @@ Paths
 All three configurations assume several paths that might need to be adjusted.
 
 Binary:              `/usr/bin/blackravend`  
-Configuration file:  `/etc/blackraven/neoxa.conf`  
+Configuration file:  `/etc/blackraven/blackraven.conf`  
 Data directory:      `/var/lib/blackravend`  
 PID file:            `/var/run/blackravend/blackravend.pid` (OpenRC and Upstart) or `/var/lib/blackravend/blackravend.pid` (systemd)  
 Lock file:           `/var/lock/subsys/blackravend` (CentOS)  
@@ -68,7 +68,7 @@ can then be controlled by group membership.
 ### Mac OS X
 
 Binary:              `/usr/local/bin/blackravend`  
-Configuration file:  `~/Library/Application Support/BlackRaven/neoxa.conf`  
+Configuration file:  `~/Library/Application Support/BlackRaven/blackraven.conf`  
 Data directory:      `~/Library/Application Support/BlackRaven`
 Lock file:           `~/Library/Application Support/BlackRaven/.lock`
 
@@ -109,13 +109,13 @@ setting the BLACKRAVEND and FLAGS environment variables in the file
 
 ### Mac OS X
 
-Copy org.neoxa.blackravend.plist into ~/Library/LaunchAgents. Load the launch agent by
-running `launchctl load ~/Library/LaunchAgents/org.neoxa.blackravend.plist`.
+Copy org.blackraven.blackravend.plist into ~/Library/LaunchAgents. Load the launch agent by
+running `launchctl load ~/Library/LaunchAgents/org.blackraven.blackravend.plist`.
 
 This Launch Agent will cause blackravend to start whenever the user logs in.
 
 NOTE: This approach is intended for those wanting to run blackravend as the current user.
-You will need to modify org.neoxa.blackravend.plist if you intend to use it as a
+You will need to modify org.blackraven.blackravend.plist if you intend to use it as a
 Launch Daemon with a dedicated blackraven user.
 
 Auto-respawn

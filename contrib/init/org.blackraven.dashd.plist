@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>org.neoxa.neoxad</string>
+	<string>org.blackraven.blackravend</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/bin/neoxad</string>
+		<string>/usr/local/bin/blackravend</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

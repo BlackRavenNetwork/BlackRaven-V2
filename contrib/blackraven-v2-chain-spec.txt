@@ -39,8 +39,8 @@ Binaries
 
 Phases
 ------
-  1. Rebrand (done on branch v2/blackraven-transition)
-  2. chainparams — new genesis, dev address, strip smartnode % (in progress)
+  1. Rebrand + string scrub (done on main)
+  2. chainparams — new genesis, dev address (in progress)
   3. regtest -> testnet -> mainnet
   4. Infra: seeds, explorer, pool, releases
 

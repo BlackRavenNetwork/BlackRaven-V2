@@ -1,9 +1,9 @@
 Release Process
 ====================
 
-* Update translations, see [translation_process.md](https://github.com/The-BlackRaven-Endeavor/neoxa/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations, see [translation_process.md](https://github.com/BlackRavenNetwork/BlackRaven-V2/blob/master/doc/translation_process.md#synchronising-translations).
 
-* Update manpages, see [gen-manpages.sh](https://github.com/The-BlackRaven-Endeavor/neoxa/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update manpages, see [gen-manpages.sh](https://github.com/BlackRavenNetwork/BlackRaven-V2/blob/master/contrib/devtools/README.md#gen-manpagessh).
 
 Before every minor and major release:
 
@@ -32,10 +32,10 @@ If you're using the automated script (found in [contrib/gitian-build.py](/contri
 Check out the source code in the following directory hierarchy.
 
 	cd /path/to/your/toplevel/build
-	git clone https://github.com/neoxa/gitian.sigs.git
+	git clone https://github.com/blackraven/gitian.sigs.git
 	git clone https://github.com/The-BlackRaven-Endeavor/blackraven-detached-sigs.git
 	git clone https://github.com/devrandom/gitian-builder.git
-	git clone https://github.com/The-BlackRaven-Endeavor/neoxa.git
+	git clone https://github.com/BlackRavenNetwork/BlackRaven-V2.git
 
 ### BlackRaven maintainers/release engineers, suggestion for writing release notes
 
@@ -57,7 +57,7 @@ If you're using the automated script (found in [contrib/gitian-build.py](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./neoxa
+    pushd ./blackraven
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.12.3)
     git fetch
@@ -91,10 +91,10 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 
 NOTE: Gitian is sometimes unable to download files. If you have errors, try the step below.
 
-By default, Gitian will fetch source files as needed. To cache them ahead of time, make sure you have checked out the tag you want to build in neoxa, then:
+By default, Gitian will fetch source files as needed. To cache them ahead of time, make sure you have checked out the tag you want to build in blackraven, then:
 
     pushd ./gitian-builder
-    make -C ../neoxa/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../blackraven/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -102,7 +102,7 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url neoxa=/path/to/neoxa,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url blackraven=/path/to/blackraven,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
@@ -110,17 +110,17 @@ The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 ### Build and sign BlackRaven for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --num-make 2 --memory 3000 --commit neoxa=v${VERSION} ../neoxa/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-linux --destination ../gitian.sigs/ ../neoxa/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gbuild --num-make 2 --memory 3000 --commit blackraven=v${VERSION} ../blackraven/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-linux --destination ../gitian.sigs/ ../blackraven/contrib/gitian-descriptors/gitian-linux.yml
     mv build/out/blackraven-*.tar.gz build/out/src/blackraven-*.tar.gz ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit neoxa=v${VERSION} ../neoxa/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../neoxa/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gbuild --num-make 2 --memory 3000 --commit blackraven=v${VERSION} ../blackraven/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../blackraven/contrib/gitian-descriptors/gitian-win.yml
     mv build/out/blackraven-*-win-unsigned.tar.gz inputs/blackraven-win-unsigned.tar.gz
     mv build/out/blackraven-*.zip build/out/blackraven-*.exe ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit neoxa=v${VERSION} ../neoxa/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../neoxa/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gbuild --num-make 2 --memory 3000 --commit blackraven=v${VERSION} ../blackraven/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../blackraven/contrib/gitian-descriptors/gitian-osx.yml
     mv build/out/blackraven-*-osx-unsigned.tar.gz inputs/blackraven-osx-unsigned.tar.gz
     mv build/out/blackraven-*.tar.gz build/out/blackraven-*.dmg ../
     popd
@@ -137,15 +137,15 @@ Build output expected:
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import neoxa/contrib/gitian-keys/*.pgp
+    gpg --import blackraven/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../neoxa/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../neoxa/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../neoxa/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../blackraven/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../blackraven/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../blackraven/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -199,18 +199,18 @@ Non-codesigners: wait for Windows/OS X detached signatures:
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../neoxa/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../neoxa/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../neoxa/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gbuild -i --commit signature=v${VERSION} ../blackraven/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../blackraven/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../blackraven/contrib/gitian-descriptors/gitian-osx-signer.yml
     mv build/out/blackraven-osx-signed.dmg ../blackraven-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../neoxa/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../neoxa/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../neoxa/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gbuild -i --commit signature=v${VERSION} ../blackraven/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer "$SIGNER" --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../blackraven/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../blackraven/contrib/gitian-descriptors/gitian-win-signer.yml
     mv build/out/blackraven-*win64-setup.exe ../blackraven-${VERSION}-win64-setup.exe
     mv build/out/blackraven-*win32-setup.exe ../blackraven-${VERSION}-win32-setup.exe
     popd
@@ -260,20 +260,20 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the neoxa.org server
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the blackraven.org server
 
-- Update neoxa.org
+- Update blackraven.org
 
 - Announce the release:
 
-  - Release on BlackRaven forum: https://www.neoxa.org/forum/topic/official-announcements.54/
+  - Release on BlackRaven forum: https://www.blackraven.org/forum/topic/official-announcements.54/
 
   - Optionally Discord, twitter, reddit /r/BlackRaven, ... but this will usually sort out itself
 
-  - Notify flare so that he can start building [the PPAs](https://launchpad.net/~neoxa.org/+archive/ubuntu/neoxa)
+  - Notify flare so that he can start building [the PPAs](https://launchpad.net/~blackraven.org/+archive/ubuntu/blackraven)
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/The-BlackRaven-Endeavor/neoxa/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/BlackRavenNetwork/BlackRaven-V2/releases/new) with a link to the archived release notes.
 
   - Celebrate

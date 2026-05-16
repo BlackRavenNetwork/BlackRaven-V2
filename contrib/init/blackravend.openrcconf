@@ -1,31 +1,31 @@
-# /etc/conf.d/neoxad: config file for /etc/init.d/neoxad
+# /etc/conf.d/blackravend: config file for /etc/init.d/blackravend
 
 # Config file location
-#BITCOIND_CONFIGFILE="/etc/neoxacore/neoxa.conf"
+#BITCOIND_CONFIGFILE="/etc/blackraven/blackraven.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
-#BITCOIND_PIDDIR="/var/run/neoxad"
+#BITCOIND_PIDDIR="/var/run/blackravend"
 
 # What filename to give the pidfile
-#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/neoxad.pid"
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/blackravend.pid"
 
-# Where to write neoxad data (be mindful that the blockchain is large)
-#BITCOIND_DATADIR="/var/lib/neoxad"
+# Where to write blackravend data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/blackravend"
 
-# User and group to own neoxad process
-#BITCOIND_USER="neoxacore"
-#BITCOIND_GROUP="neoxacore"
+# User and group to own blackravend process
+#BITCOIND_USER="blackraven"
+#BITCOIND_GROUP="blackraven"
 
-# Path to neoxad executable
-#BITCOIND_BIN="/usr/bin/neoxad"
+# Path to blackravend executable
+#BITCOIND_BIN="/usr/bin/blackravend"
 
-# Nice value to run neoxad under
+# Nice value to run blackravend under
 #BITCOIND_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)
 #BITCOIND_OPTS=""
 
-# The timeout in seconds OpenRC will wait for neoxad to terminate
+# The timeout in seconds OpenRC will wait for blackravend to terminate
 # after a SIGTERM has been raised.
 # Note that this will be mapped as argument to start-stop-daemon's
 # '--retry' option, which means you can specify a retry schedule

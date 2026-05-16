@@ -8,7 +8,7 @@ There are currently two sets of tests in this directory:
 - [functional](/test/functional) which test the functionality of
 blackravend and blackraven-qt by interacting with them through the RPC and P2P
 interfaces.
-- [util](test/util) which tests the neoxa utilities, currently only
+- [util](test/util) which tests the blackraven utilities, currently only
 blackraven-tx.
 
 The util tests are run as part of `make check` target. The functional

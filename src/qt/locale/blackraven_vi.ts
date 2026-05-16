@@ -70,12 +70,12 @@
         <translation>Địa chỉ nhận</translation>
     </message>
     <message>
-        <source>These are your Neoxa addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Đây là các địa chỉ Neoxa của bạn để gửi thanh toán. Luôn luôn kiểm tra số tiền và địa chỉ nhận trước khi bạn gửi tiền.</translation>
+        <source>These are your BlackRaven addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Đây là các địa chỉ BlackRaven của bạn để gửi thanh toán. Luôn luôn kiểm tra số tiền và địa chỉ nhận trước khi bạn gửi tiền.</translation>
     </message>
     <message>
-        <source>These are your Neoxa addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Đây là các địa chỉ Neoxa của bạn để nhận thanh toán. Gợi ý là sử dụng một địa chỉ nhận mới cho mỗi giao dịch.</translation>
+        <source>These are your BlackRaven addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Đây là các địa chỉ BlackRaven của bạn để nhận thanh toán. Gợi ý là sử dụng một địa chỉ nhận mới cho mỗi giao dịch.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -258,12 +258,12 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>A fatal error occurred. Neoxa Core can no longer continue safely and will quit.</source>
-        <translation>Có lỗi nghiêm trọng xảy ra. Neoxa Core không thể tiếp tục một cách an toàn được nên phải thoát ra.</translation>
+        <source>A fatal error occurred. BlackRaven Core can no longer continue safely and will quit.</source>
+        <translation>Có lỗi nghiêm trọng xảy ra. BlackRaven Core không thể tiếp tục một cách an toàn được nên phải thoát ra.</translation>
     </message>
     <message>
-        <source>Neoxa Core</source>
-        <translation>Neoxa Core</translation>
+        <source>BlackRaven Core</source>
+        <translation>BlackRaven Core</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -286,16 +286,16 @@
         <translation>&amp;Gửi</translation>
     </message>
     <message>
-        <source>Send coins to a Neoxa address</source>
-        <translation>Gửi tiền vào địa chỉ Neoxa</translation>
+        <source>Send coins to a BlackRaven address</source>
+        <translation>Gửi tiền vào địa chỉ BlackRaven</translation>
     </message>
     <message>
         <source>&amp;Receive</source>
         <translation>&amp;Nhận</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and neoxa: URIs)</source>
-        <translation>Yêu cầu thanh toán (sinh mã QR và neoxa: URIs)</translation>
+        <source>Request payments (generates QR codes and blackraven: URIs)</source>
+        <translation>Yêu cầu thanh toán (sinh mã QR và blackraven: URIs)</translation>
     </message>
     <message>
         <source>&amp;Transactions</source>
@@ -322,8 +322,8 @@
         <translation>Thoát ứng dụng</translation>
     </message>
     <message>
-        <source>Show information about Neoxa Core</source>
-        <translation>Hiển thị thông tin về Neoxa Core</translation>
+        <source>Show information about BlackRaven Core</source>
+        <translation>Hiển thị thông tin về BlackRaven Core</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -394,16 +394,16 @@
         <translation>Ký vào &amp;thông điệp...</translation>
     </message>
     <message>
-        <source>Sign messages with your Neoxa addresses to prove you own them</source>
-        <translation>Ký vào thông điệp với địa chỉ Neoxa để chứng minh bạn là chủ của chúng</translation>
+        <source>Sign messages with your BlackRaven addresses to prove you own them</source>
+        <translation>Ký vào thông điệp với địa chỉ BlackRaven để chứng minh bạn là chủ của chúng</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
         <translation>&amp;Kiểm tra thông điệp...</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Neoxa addresses</source>
-        <translation>Kiểm tra thông điệp để đảm bảo rằng nó đã được ký bằng địa chỉ Neoxa nhất định</translation>
+        <source>Verify messages to ensure they were signed with specified BlackRaven addresses</source>
+        <translation>Kiểm tra thông điệp để đảm bảo rằng nó đã được ký bằng địa chỉ BlackRaven nhất định</translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -482,16 +482,16 @@
         <translation>Mở &amp;URI...</translation>
     </message>
     <message>
-        <source>Open a neoxa: URI or payment request</source>
-        <translation>Mở một neoxa: URI hoặc một yêu cầu thanh toán</translation>
+        <source>Open a blackraven: URI or payment request</source>
+        <translation>Mở một blackraven: URI hoặc một yêu cầu thanh toán</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Các Tuỳ chọn dòng lệnh</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Neoxa command-line options</source>
-        <translation>Hiển thị %1 tin nhắn hỗ trợ để nhận được danh sách Neoxa command-line khả dụng</translation>
+        <source>Show the %1 help message to get a list with possible BlackRaven command-line options</source>
+        <translation>Hiển thị %1 tin nhắn hỗ trợ để nhận được danh sách BlackRaven command-line khả dụng</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -526,8 +526,8 @@
         <translation>Bảng Thanh công cụ</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Neoxa network</source>
-        <translation><numerusform>%n kết nối hiện thời tới mạng lưới của Neoxa</numerusform></translation>
+        <source>%n active connection(s) to BlackRaven network</source>
+        <translation><numerusform>%n kết nối hiện thời tới mạng lưới của BlackRaven</numerusform></translation>
     </message>
     <message>
         <source>Network activity disabled</source>
@@ -894,8 +894,8 @@
         <translation>Sửa địa chỉ gửi</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Neoxa address.</source>
-        <translation>Địa chỉ vừa nhập "%1" không phải địa chỉ Neoxa hợp lệ.</translation>
+        <source>The entered address "%1" is not a valid BlackRaven address.</source>
+        <translation>Địa chỉ vừa nhập "%1" không phải địa chỉ BlackRaven hợp lệ.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -992,8 +992,8 @@
         <translation>Thông tin PrivateSend</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Neoxa in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 NEOX, 0.01 NEOX, 0.1 NEOX, 1 NEOX and 10 NEOX -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "smartnodes." These smartnodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the smartnodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The smartnode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.neoxa.org/en/stable/wallets/neoxacore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;Cơ bản về PrivateSend&lt;/h3&gt; PrivateSend cho bạn sự thực sự riêng tư về tài chính bằng việc che dấu những nguồn cung. Tất cả Neoxa trong ví của bạn bao gồm những "đầu vào" khác nhau mà bạn nghĩ đó là các coin riêng biệt và rời rạc.&lt;br&gt; PrivateSend sử dụng một tiến trình độc đáo để trộn các đầu vào của bạn với đầu vào của hai người khác, mà không làm cho các coin rời khỏi ví của bạn. Bạn vẫn giữ quyền kiểm soát tiền của bạn bất cứ lúc nào.&lt;hr&gt; &lt;b&gt;Quá trình PrivateSend làm việc như sau: &lt;/b&gt; &lt;ol type="1"&gt; &lt;li&gt;PrivateSend bắt đầu bằng việc chia các giao dịch đầu vào của bạn thành những mệnh giá chuẩn. Những mệnh giá đó là 0.001 NEOX, 0.01 NEOX, 0.1 NEOX, 1 NEOX, và 10 NEOX -- cũng giống như các mệnh giá trên tiền giấy mà bạn sử dụng hàng ngày. &lt;/li&gt;&lt;li&gt;Ví của bạn sau đó gửi yêu cầu đến những nút phần mềm được cấu hình đặc biệt trên mạng gọi là các "smartnode". Những smartnode được báo rằng bạn quan tâm đến việc xáo trộn một mệnh giá nào đó. Không có thông tin định danh nào được gửi đến cho các smartnode, và như vậy họ không bao giờ biết bạn "là ai". &lt;/li&gt; &lt;li&gt;Khi hai người kia gửi những thông điệp tương tự, có nghĩa là họ muốn xáo trộn cùng loại mệnh giá, một phiên xáo trộn bắt đầu. Smartnode xáo trộn các đầu vào và hướng dẫn tất cả ví của cả ba người dùng để trả đầu vào đã được chuyển đổi trở lại cho chính họ. Ví của bạn sẽ trả mệnh giá đó trực tiếp cho nó, nhưng với một địa chỉ khác (được gọi là địa chỉ trả tiền lẻ). &lt;/li&gt; &lt;li&gt;Để thực sự che khuất nguồn tiền của bạn, ví của bạn phải lặp lại quy trình đó một số lần với mỗi mệnh giá nhất định. Mỗi lần tiến trình hoàn tất, nó được gọi là một "vòng". Mỗi vòng của PrivateSend làm nên độ khó bậc số mũ để xác định nguồn tiền của bạn đến từ đâu. &lt;/li&gt; &lt;li&gt;Quá trình xáo trộn này xảy ra trong chế độ nền mà không xen vào những việc khác của bạn. Khi bạn muốn thực hiện một giao dịch, nguồn tiền của bạn đã được ẩn danh rồi. Do đó bạn không cần phải đợi thêm gì nữa. &lt;/li&gt;&lt;/ol&gt; &lt;hr&gt; &lt;b&gt;QUAN TRỌNG:&lt;/b&gt; Ví của bạn chỉ có chứa 1000 "địa chỉ tiền trả lại". Mỗi lần một sự kiện xáo trộn xảy ra, có đến 9 địa chỉ sẽ được sử dụng. Điều đó có nghĩa với ví mới với 1000 địa chỉ thì dùng cho 100 lần trộn. Khi 900 địa chỉ đã được sử dụng, ví của bạn phải tạo thêm các địa chỉ mới. Nó chỉ có thể làm việc đó nếu bạn có chế độ tự động backup được bật&lt;br&gt; Kết quả là, những người dùng mà chế độ backup bị tắt sẽ có chế độ PrivateSend cũng bị tắt.&lt;hr&gt; Để biết thêm thông tin hãy xem &lt;a href="https://docs.neoxa.org/en/stable/wallets/neoxacore/privatesend-instantsend.html"&gt;Tài liệu về PrivateSend&lt;/a&gt;.</translation>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the BlackRaven in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 NEOX, 0.01 NEOX, 0.1 NEOX, 1 NEOX and 10 NEOX -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "smartnodes." These smartnodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the smartnodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The smartnode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.blackraven.org/en/stable/wallets/blackravencore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;Cơ bản về PrivateSend&lt;/h3&gt; PrivateSend cho bạn sự thực sự riêng tư về tài chính bằng việc che dấu những nguồn cung. Tất cả BlackRaven trong ví của bạn bao gồm những "đầu vào" khác nhau mà bạn nghĩ đó là các coin riêng biệt và rời rạc.&lt;br&gt; PrivateSend sử dụng một tiến trình độc đáo để trộn các đầu vào của bạn với đầu vào của hai người khác, mà không làm cho các coin rời khỏi ví của bạn. Bạn vẫn giữ quyền kiểm soát tiền của bạn bất cứ lúc nào.&lt;hr&gt; &lt;b&gt;Quá trình PrivateSend làm việc như sau: &lt;/b&gt; &lt;ol type="1"&gt; &lt;li&gt;PrivateSend bắt đầu bằng việc chia các giao dịch đầu vào của bạn thành những mệnh giá chuẩn. Những mệnh giá đó là 0.001 NEOX, 0.01 NEOX, 0.1 NEOX, 1 NEOX, và 10 NEOX -- cũng giống như các mệnh giá trên tiền giấy mà bạn sử dụng hàng ngày. &lt;/li&gt;&lt;li&gt;Ví của bạn sau đó gửi yêu cầu đến những nút phần mềm được cấu hình đặc biệt trên mạng gọi là các "smartnode". Những smartnode được báo rằng bạn quan tâm đến việc xáo trộn một mệnh giá nào đó. Không có thông tin định danh nào được gửi đến cho các smartnode, và như vậy họ không bao giờ biết bạn "là ai". &lt;/li&gt; &lt;li&gt;Khi hai người kia gửi những thông điệp tương tự, có nghĩa là họ muốn xáo trộn cùng loại mệnh giá, một phiên xáo trộn bắt đầu. Smartnode xáo trộn các đầu vào và hướng dẫn tất cả ví của cả ba người dùng để trả đầu vào đã được chuyển đổi trở lại cho chính họ. Ví của bạn sẽ trả mệnh giá đó trực tiếp cho nó, nhưng với một địa chỉ khác (được gọi là địa chỉ trả tiền lẻ). &lt;/li&gt; &lt;li&gt;Để thực sự che khuất nguồn tiền của bạn, ví của bạn phải lặp lại quy trình đó một số lần với mỗi mệnh giá nhất định. Mỗi lần tiến trình hoàn tất, nó được gọi là một "vòng". Mỗi vòng của PrivateSend làm nên độ khó bậc số mũ để xác định nguồn tiền của bạn đến từ đâu. &lt;/li&gt; &lt;li&gt;Quá trình xáo trộn này xảy ra trong chế độ nền mà không xen vào những việc khác của bạn. Khi bạn muốn thực hiện một giao dịch, nguồn tiền của bạn đã được ẩn danh rồi. Do đó bạn không cần phải đợi thêm gì nữa. &lt;/li&gt;&lt;/ol&gt; &lt;hr&gt; &lt;b&gt;QUAN TRỌNG:&lt;/b&gt; Ví của bạn chỉ có chứa 1000 "địa chỉ tiền trả lại". Mỗi lần một sự kiện xáo trộn xảy ra, có đến 9 địa chỉ sẽ được sử dụng. Điều đó có nghĩa với ví mới với 1000 địa chỉ thì dùng cho 100 lần trộn. Khi 900 địa chỉ đã được sử dụng, ví của bạn phải tạo thêm các địa chỉ mới. Nó chỉ có thể làm việc đó nếu bạn có chế độ tự động backup được bật&lt;br&gt; Kết quả là, những người dùng mà chế độ backup bị tắt sẽ có chế độ PrivateSend cũng bị tắt.&lt;hr&gt; Để biết thêm thông tin hãy xem &lt;a href="https://docs.blackraven.org/en/stable/wallets/blackravencore/privatesend-instantsend.html"&gt;Tài liệu về PrivateSend&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1039,8 +1039,8 @@
         <translation>Gần đúng %1 GB of data sẽ được lưu giữ trong danh mục này.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the Neoxa block chain.</source>
-        <translation>%1 sẽ download và lưu trữ một bản copy của Neoxa block chain.</translation>
+        <source>%1 will download and store a copy of the BlackRaven block chain.</source>
+        <translation>%1 sẽ download và lưu trữ một bản copy của BlackRaven block chain.</translation>
     </message>
     <message>
         <source>The wallet will also be stored in this directory.</source>
@@ -1185,12 +1185,12 @@
         <translation>Form</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Neoxa network, as detailed below.</source>
-        <translation>Những giao dịch mới có thể chưa hiện ra, và do đó số dư trong ví của bạn có thể chưa chính xác. Những thông tin này sẽ chính xác một khi ví của bạn đã hoàn tất việc đồng bộ với mạng lưới của Neoxa, như cụ thể bên dưới.</translation>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the BlackRaven network, as detailed below.</source>
+        <translation>Những giao dịch mới có thể chưa hiện ra, và do đó số dư trong ví của bạn có thể chưa chính xác. Những thông tin này sẽ chính xác một khi ví của bạn đã hoàn tất việc đồng bộ với mạng lưới của BlackRaven, như cụ thể bên dưới.</translation>
     </message>
     <message>
-        <source>Attempting to spend Neoxa that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Việc chi tiêu Neoxa khi mà các giao dịch của nó chưa được đồng bộ hết sẽ không được chấp nhận bởi mạng lưới.</translation>
+        <source>Attempting to spend BlackRaven that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>Việc chi tiêu BlackRaven khi mà các giao dịch của nó chưa được đồng bộ hết sẽ không được chấp nhận bởi mạng lưới.</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1331,12 +1331,12 @@
         <translation>Số dư đích cho PrivateSend</translation>
     </message>
     <message>
-        <source>Automatically open the Neoxa Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Tự động mở cổng cho phần mềm Neoxa Core trên rounter. Điều này chỉ hoạt động được khi rounter của bạn hỗ trợ UpnP và tính năng đó được bật lên.</translation>
+        <source>Automatically open the BlackRaven Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Tự động mở cổng cho phần mềm BlackRaven Core trên rounter. Điều này chỉ hoạt động được khi rounter của bạn hỗ trợ UpnP và tính năng đó được bật lên.</translation>
     </message>
     <message>
-        <source>Connect to the Neoxa network through a SOCKS5 proxy.</source>
-        <translation>Kết nối với mạng lưới Neoxa thông qua một SOCK5 proxy.</translation>
+        <source>Connect to the BlackRaven network through a SOCKS5 proxy.</source>
+        <translation>Kết nối với mạng lưới BlackRaven thông qua một SOCK5 proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1439,8 +1439,8 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the Neoxa network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Kết nối với mạng lưới Neoxa thông qua các proxy SOCKS5 riêng biệt cho các dịch vụ ẩn danh Tor.</translation>
+        <source>Connect to the BlackRaven network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Kết nối với mạng lưới BlackRaven thông qua các proxy SOCKS5 riêng biệt cho các dịch vụ ẩn danh Tor.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -1484,9 +1484,9 @@
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/neoxa/</source>
+https://www.transifex.com/projects/p/blackraven/</source>
         <translation>Ngôn ngữ ị thiếu hoặc việc dịch chưa hoàn tất? Tham gia dịch giúp tại đây:
-https://www.transifex.com/projects/p/neoxa/</translation>
+https://www.transifex.com/projects/p/blackraven/</translation>
     </message>
     <message>
         <source>User Interface Theme:</source>
@@ -1564,8 +1564,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Biểu mẫu</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Neoxa network after a connection is established, but this process has not completed yet.</source>
-        <translation>Thông tin được hiển thị có thể đã lỗi thời. Ví của bạn sẽ tự động đồng bộ với mạng lưới Neoxa sau khi kết nối được thiết lập, tuy nhiên quá trình này chưa hoàn thành.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the BlackRaven network after a connection is established, but this process has not completed yet.</source>
+        <translation>Thông tin được hiển thị có thể đã lỗi thời. Ví của bạn sẽ tự động đồng bộ với mạng lưới BlackRaven sau khi kết nối được thiết lập, tuy nhiên quá trình này chưa hoàn thành.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1801,8 +1801,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Yêu cầu thanh toán bị lỗi</translation>
     </message>
     <message>
-        <source>Cannot start neoxa: click-to-pay handler</source>
-        <translation>Không thể khởi động neoxa: trình xử lý click-to-pay</translation>
+        <source>Cannot start blackraven: click-to-pay handler</source>
+        <translation>Không thể khởi động blackraven: trình xử lý click-to-pay</translation>
     </message>
     <message>
         <source>URI handling</source>
@@ -1817,8 +1817,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Địa chỉ thanh toán không hợp lệ %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Neoxa address or malformed URI parameters.</source>
-        <translation>URI không thể phân tích. Nó có thể bởi địa chỉ Neoxa không hợp lệ hoặc thông số URI dị hình.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid BlackRaven address or malformed URI parameters.</source>
+        <translation>URI không thể phân tích. Nó có thể bởi địa chỉ BlackRaven không hợp lệ hoặc thông số URI dị hình.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1915,8 +1915,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Số lượng</translation>
     </message>
     <message>
-        <source>Enter a Neoxa address (e.g. %1)</source>
-        <translation>Hãy nhập một địa chỉ Neoxa (VD: %1)</translation>
+        <source>Enter a BlackRaven address (e.g. %1)</source>
+        <translation>Hãy nhập một địa chỉ BlackRaven (VD: %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2441,8 +2441,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Tái &amp;sử dụng lại địa chỉ nhận đã có (không khuyến khích)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Neoxa network.</source>
-        <translation>Một thông điệp tuỳ chọn để đính vào yêu cầu thanh toán, nó sẽ hiển thị khi yêu cầu được mở. Chú ý: Thông điệp sẽ không được gửi thông qua mạng lưới Neoxa.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the BlackRaven network.</source>
+        <translation>Một thông điệp tuỳ chọn để đính vào yêu cầu thanh toán, nó sẽ hiển thị khi yêu cầu được mở. Chú ý: Thông điệp sẽ không được gửi thông qua mạng lưới BlackRaven.</translation>
     </message>
     <message>
         <source>&amp;Message:</source>
@@ -2453,8 +2453,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Một nhãn tuỳ chọn để liên kết với địa chỉ nhận mới.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Neoxa network.</source>
-        <translation>Một thông điệp tuỳ chọn để đính vào yêu cầu thanh toán, nó sẽ hiển thị khi yêu cầu được mở.&lt;br&gt;Chú ý: Thông điệp sẽ không được gửi thông qua mạng lưới Neoxa.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the BlackRaven network.</source>
+        <translation>Một thông điệp tuỳ chọn để đính vào yêu cầu thanh toán, nó sẽ hiển thị khi yêu cầu được mở.&lt;br&gt;Chú ý: Thông điệp sẽ không được gửi thông qua mạng lưới BlackRaven.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -2690,8 +2690,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Nếu mức phí tuỳ chỉnh được đặt là 1000 duff và giao dịch chỉ có 250 byte, thì "theo kilobyte" chỉ trả 250 duff cho phí,&lt;br /&gt;trong khi "ít nhất" phải trả 1000 duff. Cho các giao dịch lớn hơn 1 kilobyte thì cả hai đều trả theo kilobyte.</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for neoxa transactions than the network can process.</source>
-        <translation>Chỉ trả phí tối thiểu cũng được chỉ khi mà có lượng giao dịch ít hơn không gian trong khối.&lt;br /&gt;Nhưng cần lưu ý là nó có thể xảy ra hiện tượng giao dịch không bao giờ được xác nhận một khi có nhiều nhu cầu giao neoxa hơn khả năng mà mạng lưới có thể xử lý được.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for blackraven transactions than the network can process.</source>
+        <translation>Chỉ trả phí tối thiểu cũng được chỉ khi mà có lượng giao dịch ít hơn không gian trong khối.&lt;br /&gt;Nhưng cần lưu ý là nó có thể xảy ra hiện tượng giao dịch không bao giờ được xác nhận một khi có nhiều nhu cầu giao blackraven hơn khả năng mà mạng lưới có thể xử lý được.</translation>
     </message>
     <message>
         <source>per kilobyte</source>
@@ -2886,8 +2886,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation><numerusform>Ước lượng để bắt đầu xác thực trong vòng %n khối.</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Invalid Neoxa address</source>
-        <translation>Cảnh báo: Địa chỉ Neoxa không hợp lệ</translation>
+        <source>Warning: Invalid BlackRaven address</source>
+        <translation>Cảnh báo: Địa chỉ BlackRaven không hợp lệ</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2917,8 +2917,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Trả &amp;Cho</translation>
     </message>
     <message>
-        <source>The Neoxa address to send the payment to</source>
-        <translation>Địa chỉ Neoxa để gửi thanh toán</translation>
+        <source>The BlackRaven address to send the payment to</source>
+        <translation>Địa chỉ BlackRaven để gửi thanh toán</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2953,8 +2953,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>&amp;Số tiền:</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Neoxa than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>Phí sẽ được trừ trong khoản tiền mà bạn gửi. Bên nhận sẽ nhận được một khoản nhỏ hơn số Neoxa mà bạn nhập vào ở trong trường số lượng. Nếu có nhiều người nhận được chọn, phí được chia đều cho mọi người.</translation>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of BlackRaven than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>Phí sẽ được trừ trong khoản tiền mà bạn gửi. Bên nhận sẽ nhận được một khoản nhỏ hơn số BlackRaven mà bạn nhập vào ở trong trường số lượng. Nếu có nhiều người nhận được chọn, phí được chia đều cho mọi người.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2969,8 +2969,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Thông điệp:</translation>
     </message>
     <message>
-        <source>A message that was attached to the neoxa: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Neoxa network.</source>
-        <translation>Một thông điệp được đính với neoxa: URI đó sẽ được lưu trữ với các giao dịch cho các bạn tham khảo. Lưu ý: Thông điệp này sẽ không được gửi qua mạng Neoxa. </translation>
+        <source>A message that was attached to the blackraven: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the BlackRaven network.</source>
+        <translation>Một thông điệp được đính với blackraven: URI đó sẽ được lưu trữ với các giao dịch cho các bạn tham khảo. Lưu ý: Thông điệp này sẽ không được gửi qua mạng BlackRaven. </translation>
     </message>
     <message>
         <source>This is an unauthenticated payment request.</source>
@@ -3022,12 +3022,12 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>&amp;Ký thông điệp</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive Neoxa sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Bạn có thể ký vào thông điệp/thoả thuận với địa chỉ của bạn để chứng minh bạn có thể nhận Neoxa đã gửi cho họ. Hãy cẩn thận không ký vào những gì mơ hồ hay ngẫu nhiên, như là thứ lừa đảo để lừa bạn ký xác nhận của bạn vào đó cho họ. Chỉ ký vào những gì mà bạn hoàn thoàn đồng ý.</translation>
+        <source>You can sign messages/agreements with your addresses to prove you can receive BlackRaven sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>Bạn có thể ký vào thông điệp/thoả thuận với địa chỉ của bạn để chứng minh bạn có thể nhận BlackRaven đã gửi cho họ. Hãy cẩn thận không ký vào những gì mơ hồ hay ngẫu nhiên, như là thứ lừa đảo để lừa bạn ký xác nhận của bạn vào đó cho họ. Chỉ ký vào những gì mà bạn hoàn thoàn đồng ý.</translation>
     </message>
     <message>
-        <source>The Neoxa address to sign the message with</source>
-        <translation>Địa chỉ Neoxa để ký cho thông điệp</translation>
+        <source>The BlackRaven address to sign the message with</source>
+        <translation>Địa chỉ BlackRaven để ký cho thông điệp</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3058,8 +3058,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Copy chữ ký hiện tại vào bộ đệm của hệ thống</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Neoxa address</source>
-        <translation>Ký vào thông điệp để chứng tỏ bạn sở hữu địa chỉ Neoxa</translation>
+        <source>Sign the message to prove you own this BlackRaven address</source>
+        <translation>Ký vào thông điệp để chứng tỏ bạn sở hữu địa chỉ BlackRaven</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -3082,12 +3082,12 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Hãy nhập vào địa chỉ của người nhận, thông điệp (hãy đảm bảo rằng bạn copy cả dấu xuống dòng, dấu cách, dấu tab,... một cách chính xác) và chữ ký bên dưới để kiểm tra thông điệp. Hãy cẩn thận để không đọc thêm vào phần chữ ký mà nó dùng để ký, để tránh bị đánh lừa bởi kiểu tấn công người trung gian. Chú ý đây chỉ để chứng minh chữ ký của bên nhận với địa chỉ đó, nó không thể chứng minh người gửi hoặc bất kỳ giao dich nào!</translation>
     </message>
     <message>
-        <source>The Neoxa address the message was signed with</source>
-        <translation>Địa chỉ Neoxa mà thông điệp được ký bởi</translation>
+        <source>The BlackRaven address the message was signed with</source>
+        <translation>Địa chỉ BlackRaven mà thông điệp được ký bởi</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Neoxa address</source>
-        <translation>Kiểm tra lại thông điệp để đảm bảo rằng nó được ký với địa chỉ Neoxa cụ thể</translation>
+        <source>Verify the message to ensure it was signed with the specified BlackRaven address</source>
+        <translation>Kiểm tra lại thông điệp để đảm bảo rằng nó được ký với địa chỉ BlackRaven cụ thể</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -3761,7 +3761,7 @@ https://www.transifex.com/projects/p/neoxa/</translation>
     </message>
 </context>
 <context>
-    <name>neoxa-core</name>
+    <name>blackraven-core</name>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
         <translation>Liên kết với địa chỉ nhất định và luôn luôn lắng nghe trên đó. Sử dụng ký hiệu [host]:port cho IPv6</translation>
@@ -4319,8 +4319,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Khoá KeePassHttp cho liên lạc mã hoá AES với KeePass</translation>
     </message>
     <message>
-        <source>Disable all Neoxa specific functionality (Smartnodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
-        <translation>Tắt tất cả các chức năng đắc trưng của Neoxa (Smartnode, PrivateSend, InstantSend, Governance) (0-1, ngầm định: %u)</translation>
+        <source>Disable all BlackRaven specific functionality (Smartnodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
+        <translation>Tắt tất cả các chức năng đắc trưng của BlackRaven (Smartnode, PrivateSend, InstantSend, Governance) (0-1, ngầm định: %u)</translation>
     </message>
     <message>
         <source>%s file contains all private keys from this wallet. Do not share it with anyone!</source>
@@ -4827,8 +4827,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Tuỳ chọn cho RPC server</translation>
     </message>
     <message>
-        <source>Neoxa Core</source>
-        <translation>Neoxa Core</translation>
+        <source>BlackRaven Core</source>
+        <translation>BlackRaven Core</translation>
     </message>
     <message>
         <source>The %s developers</source>
@@ -4955,8 +4955,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Whitelist peers connecting from the given IP address (e.g. 1.2.3.4) or CIDR notated network (e.g. 1.2.3.0/24). Can be specified multiple times.</translation>
     </message>
     <message>
-        <source>You are starting in lite mode, most Neoxa-specific functionality is disabled.</source>
-        <translation>Bạn đang khởi động ở chế độ nhẹ, hầu hết các tính năng đặc trưng của Neoxa bị tắt.</translation>
+        <source>You are starting in lite mode, most BlackRaven-specific functionality is disabled.</source>
+        <translation>Bạn đang khởi động ở chế độ nhẹ, hầu hết các tính năng đặc trưng của BlackRaven bị tắt.</translation>
     </message>
     <message>
         <source>%d of last 100 blocks have unexpected version</source>

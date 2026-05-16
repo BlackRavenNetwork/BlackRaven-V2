@@ -3,7 +3,7 @@
 
 #include "cachemultimap.h"
 
-#include "test/test_neoxa.h"
+#include "test/test_blackraven.h"
 
 #include <algorithm>
 #include <iostream>

@@ -73,7 +73,7 @@ clean_exe src/blackraven-cli
 clean_exe src/blackravend
 clean_exe src/blackraven-gtest
 clean_exe src/blackraven-tx
-clean_exe src/test/test_neoxa
+clean_exe src/test/test_blackraven
 clean_exe src/test/test_blackraven_fuzzy
 
 clean_exe src/leveldb/db_bench

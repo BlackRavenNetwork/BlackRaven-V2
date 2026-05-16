@@ -205,8 +205,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no neoxa: URI
-    if(!uri.isValid() || uri.scheme() != QString("neoxa"))
+    // return if URI is not valid or is no blackraven: URI
+    if(!uri.isValid() || uri.scheme() != QString("blackraven"))
         return false;
 
     SendCoinsRecipient rv;
@@ -272,13 +272,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert neoxa:// to neoxa:
+    // Convert blackraven:// to blackraven:
     //
-    //    Cannot handle this later, because neoxa:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because blackraven:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("neoxa://", Qt::CaseInsensitive))
+    if(uri.startsWith("blackraven://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 7, "neoxa:");
+        uri.replace(0, 7, "blackraven:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -286,7 +286,7 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("neoxa:%1").arg(info.address);
+    QString ret = QString("blackraven:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
@@ -486,7 +486,7 @@ void openConfigfile()
 {
     fs::path pathConfig = GetConfigFile(gArgs.GetArg("-conf", BITCOIN_CONF_FILENAME));
 
-    /* Open neoxa.conf with the associated application */
+    /* Open blackraven.conf with the associated application */
     if (fs::exists(pathConfig))
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }

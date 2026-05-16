@@ -58,8 +58,8 @@ If you want to build the windows installer with `make deploy` you need [NSIS](ht
 
 Acquire the source in the usual way:
 
-    git clone https://github.com/BlackRavenChain/BlackRaven
-    cd neoxa
+    git clone https://github.com/BlackRavenNetwork/BlackRaven-V2
+    cd blackraven
 
 ### Building for 64-bit Windows
 
@@ -74,7 +74,7 @@ Ubuntu Bionic 18.04 <sup>[1](#footnote1)</sup>:
 Once the toolchain is installed the build steps are common:
 
 Note that for WSL the BlackRaven source path MUST be somewhere in the default mount file system, for
-example /usr/src/neoxa, AND not under /mnt/d/. If this is not the case the dependency autoconf scripts will fail.
+example /usr/src/blackraven, AND not under /mnt/d/. If this is not the case the dependency autoconf scripts will fail.
 This means you cannot use a directory that is located directly on the host Windows file system to perform the build.
 
 Build using:

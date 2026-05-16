@@ -56,14 +56,14 @@ LIBBITCOIN_CONSENSUS=libblackraven_consensus.a
 LIBBITCOIN_CLI=libblackraven_cli.a
 LIBBITCOIN_UTIL=libblackraven_util.a
 LIBBITCOIN_CRYPTO_BASE=crypto/libblackraven_crypto_base.a
-LIBBITCOINQT=qt/libneoxaqt.a
+LIBBITCOINQT=qt/libblackraven-qt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
 LIBBITCOIN_ZMQ=libblackraven_zmq.a
 endif
 if BUILD_BITCOIN_LIBS
-LIBBITCOINCONSENSUS=libneoxaconsensus.la
+LIBBITCOINCONSENSUS=libblackravenconsensus.la
 endif
 if ENABLE_WALLET
 LIBBITCOIN_WALLET=libblackraven_wallet.a
@@ -114,7 +114,7 @@ if BUILD_BITCOIN_UTILS
 endif
 
 .PHONY: FORCE check-symbols check-security
-# neoxa core #
+# blackraven core #
 BITCOIN_CORE_H = \
   addrdb.h \
   addressindex.h \
@@ -569,7 +569,7 @@ libblackraven_consensus_a_SOURCES = \
   primitives/transaction.h \
   pubkey.cpp \
   pubkey.h \
-  script/neoxaconsensus.cpp \
+  script/blackravenconsensus.cpp \
   script/interpreter.cpp \
   script/interpreter.h \
   script/script.cpp \
@@ -724,19 +724,19 @@ blackraven_tx_LDADD = \
 blackraven_tx_LDADD += $(BACKTRACE_LIB) $(BOOST_LIBS) $(CRYPTO_LIBS) $(BLS_LIBS)
 #
 
-# neoxaconsensus library #
+# blackravenconsensus library #
 if BUILD_BITCOIN_LIBS
-include_HEADERS = script/neoxaconsensus.h
-libneoxaconsensus_la_SOURCES = support/cleanse.cpp $(crypto_libblackraven_crypto_base_a_SOURCES) $(libblackraven_consensus_a_SOURCES)
+include_HEADERS = script/blackravenconsensus.h
+libblackravenconsensus_la_SOURCES = support/cleanse.cpp $(crypto_libblackraven_crypto_base_a_SOURCES) $(libblackraven_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libneoxaconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libblackravenconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libneoxaconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-libneoxaconsensus_la_LIBADD = $(LIBSECP256K1) $(BLS_LIBS)
-libneoxaconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
-libneoxaconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libblackravenconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+libblackravenconsensus_la_LIBADD = $(LIBSECP256K1) $(BLS_LIBS)
+libblackravenconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
+libblackravenconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #

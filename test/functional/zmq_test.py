@@ -9,15 +9,14 @@ import struct
 
 from codecs import encode
 
-from test_framework.mininode import neoxahash
+from test_framework.messages import dashhash
 from test_framework.test_framework import BitcoinTestFramework, SkipTest
 from test_framework.util import (assert_equal,
                                  bytes_to_hex_str,
-                                 hash256,
                                 )
 
-def neoxahash_helper(b):
-    return encode(neoxahash(b)[::-1], 'hex_codec').decode('ascii')
+def block_pow_hash_hex(b):
+    return encode(dashhash(b)[::-1], 'hex_codec').decode('ascii')
 
 class ZMQTest (BitcoinTestFramework):
     def set_test_params(self):
@@ -30,7 +29,7 @@ class ZMQTest (BitcoinTestFramework):
         except ImportError:
             raise SkipTest("python3-zmq module not available.")
 
-        # Check that neoxa has been built with ZMQ enabled
+        # Check that blackraven has been built with ZMQ enabled
         config = configparser.ConfigParser()
         if not self.options.configfile:
             self.options.configfile = os.path.dirname(__file__) + "/../config.ini"
@@ -103,7 +102,7 @@ class ZMQTest (BitcoinTestFramework):
         assert_equal(msgSequence, 0) #must be sequence 0 on rawblock
 
         # Check the hash of the rawblock's header matches generate
-        assert_equal(genhashes[0], neoxahash_helper(body[:80]))
+        assert_equal(genhashes[0], block_pow_hash_hex(body[:80]))
 
         self.log.info("Generate 10 blocks (and 10 coinbase txes)")
         n = 10
@@ -123,7 +122,7 @@ class ZMQTest (BitcoinTestFramework):
                 assert_equal(msgSequence, blockcount + 1)
                 blockcount += 1
             if topic == b"rawblock":
-                zmqRawHashed.append(neoxahash_helper(body[:80]))
+                zmqRawHashed.append(block_pow_hash_hex(body[:80]))
                 msgSequence = struct.unpack('<I', msg[-1])[-1]
                 assert_equal(msgSequence, blockcount)
 

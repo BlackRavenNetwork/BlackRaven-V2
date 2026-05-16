@@ -23,4 +23,4 @@ FORMS += \
     ../src/qt/forms/transactiondescdialog.ui
 
 RESOURCES += \
-    ../src/qt/neoxa.qrc
+    ../src/qt/blackraven.qrc

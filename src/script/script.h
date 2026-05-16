@@ -563,7 +563,7 @@ public:
             pc += nSize;
         }
 
-        // If we see an op neoxa asset, we consider all data after it has data, and not op codes
+        // If we see an op blackraven asset, we consider all data after it has data, and not op codes
         // Move the pc to the end of the script
         if (opcode == OP_BLKR_ASSET) {
             unsigned int nSize = end() - pc;

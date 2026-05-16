@@ -1,6 +1,6 @@
 [Protocol]
-exec=neoxa-qt '%u'
-protocol=neoxa
+exec=blackraven-qt '%u'
+protocol=blackraven
 input=none
 output=none
 helper=true

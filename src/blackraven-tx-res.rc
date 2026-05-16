@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Neoxa"
-            VALUE "FileDescription",    "neoxa-tx (CLI Neoxa transaction editor utility)"
+            VALUE "CompanyName",        "BlackRaven"
+            VALUE "FileDescription",    "blackraven-tx (CLI BlackRaven transaction editor utility)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "neoxa-tx"
+            VALUE "InternalName",       "blackraven-tx"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "neoxa-tx.exe"
-            VALUE "ProductName",        "neoxa-tx"
+            VALUE "OriginalFilename",   "blackraven-tx.exe"
+            VALUE "ProductName",        "blackraven-tx"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

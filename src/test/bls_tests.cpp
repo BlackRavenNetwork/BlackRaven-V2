@@ -5,7 +5,7 @@
 
 #include "bls/bls.h"
 #include "bls/bls_batchverifier.h"
-#include "test/test_neoxa.h"
+#include "test/test_blackraven.h"
 
 #include <boost/test/unit_test.hpp>
 

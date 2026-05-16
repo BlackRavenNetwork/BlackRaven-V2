@@ -207,7 +207,7 @@ bool Intro::pickDataDirectory()
         /* Let the user choose one */
         Intro intro;
         intro.setDataDirectory(dataDirDefaultCurrent);
-        intro.setWindowIcon(QIcon(":icons/neoxa"));
+        intro.setWindowIcon(QIcon(":icons/blackraven"));
 
         while(true)
         {
@@ -231,7 +231,7 @@ bool Intro::pickDataDirectory()
         settings.setValue("strDataDirDefault", dataDirDefaultCurrent);
     }
     /* Only override -datadir if different from the default, to make it possible to
-     * override -datadir in the neoxa.conf file in the default data directory
+     * override -datadir in the blackraven.conf file in the default data directory
      * (to be consistent with blackravend behavior)
      */
     if(dataDir != dataDirDefaultCurrent)

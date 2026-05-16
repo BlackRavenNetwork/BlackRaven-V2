@@ -8,7 +8,7 @@ Running
 ---------------------
 After compiling BlackRaven, the benchmarks can be run with:
 
-    src/bench/bench_neoxa
+    src/bench/bench_blackraven
 
 The output will look similar to:
 ```
@@ -153,7 +153,7 @@ Help
 ---------------------
 `-?` will print a list of options and exit:
 
-    src/bench/bench_neoxa -?
+    src/bench/bench_blackraven -?
 
 Notes
 ---------------------

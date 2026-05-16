@@ -55,7 +55,7 @@ elif [ "$BUILD_TARGET" = "win64" ]; then
 elif [ "$BUILD_TARGET" = "linux32" ]; then
   export HOST=i686-pc-linux-gnu
   export BITCOIN_CONFIG="--enable-zmq --enable-glibc-back-compat --enable-reduce-exports --enable-crash-hooks LDFLAGS=-static-libstdc++"
-  export USE_SHELL="/bin/neoxa"
+  export USE_SHELL="/bin/blackraven"
   export PYZMQ=true
   export RUN_UNITTESTS=true
   export RUN_INTEGRATIONTESTS=true

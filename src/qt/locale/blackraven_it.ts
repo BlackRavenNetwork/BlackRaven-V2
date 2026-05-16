@@ -51,11 +51,11 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Scegli l'indirizzo a cui inviare i neoxa</translation>
+        <translation>Scegli l'indirizzo a cui inviare i blackraven</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Scegli l'indirizzo con cui ricevere neoxa</translation>
+        <translation>Scegli l'indirizzo con cui ricevere blackraven</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -70,12 +70,12 @@
         <translation>Indirizzi di ricezione</translation>
     </message>
     <message>
-        <source>These are your Neoxa addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Questi sono i tuoi indirizzi Neoxa per inviare i pagamenti. Controlla sempre l'ammontare e l'indirizzo di destinazione prima di inviare i neoxa.</translation>
+        <source>These are your BlackRaven addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Questi sono i tuoi indirizzi BlackRaven per inviare i pagamenti. Controlla sempre l'ammontare e l'indirizzo di destinazione prima di inviare i blackraven.</translation>
     </message>
     <message>
-        <source>These are your Neoxa addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Questi sono i tuoi indirizzi di Neoxa per ricevere i pagamenti. Si raccomanda di usare un nuovo indirizzo di ricezione per ogni operazione.</translation>
+        <source>These are your BlackRaven addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Questi sono i tuoi indirizzi di BlackRaven per ricevere i pagamenti. Si raccomanda di usare un nuovo indirizzo di ricezione per ogni operazione.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -258,12 +258,12 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>A fatal error occurred. Neoxa Core can no longer continue safely and will quit.</source>
-        <translation>Si è verificato un errore irreversibile. Neoxa Core non può più continuare in sicurezza e terminerà le operazioni.</translation>
+        <source>A fatal error occurred. BlackRaven Core can no longer continue safely and will quit.</source>
+        <translation>Si è verificato un errore irreversibile. BlackRaven Core non può più continuare in sicurezza e terminerà le operazioni.</translation>
     </message>
     <message>
-        <source>Neoxa Core</source>
-        <translation>Neoxa Core</translation>
+        <source>BlackRaven Core</source>
+        <translation>BlackRaven Core</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -286,16 +286,16 @@
         <translation>&amp;Invia</translation>
     </message>
     <message>
-        <source>Send coins to a Neoxa address</source>
-        <translation>Spedire neoxa ad un indirizzo Neoxa</translation>
+        <source>Send coins to a BlackRaven address</source>
+        <translation>Spedire blackraven ad un indirizzo BlackRaven</translation>
     </message>
     <message>
         <source>&amp;Receive</source>
         <translation>&amp;Ricevi</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and neoxa: URIs)</source>
-        <translation>Richieste di pagamenti (genera codici QR e neoxa: URLs)</translation>
+        <source>Request payments (generates QR codes and blackraven: URIs)</source>
+        <translation>Richieste di pagamenti (genera codici QR e blackraven: URLs)</translation>
     </message>
     <message>
         <source>&amp;Transactions</source>
@@ -322,8 +322,8 @@
         <translation>Chiudi applicazione</translation>
     </message>
     <message>
-        <source>Show information about Neoxa Core</source>
-        <translation>Mostra le informazioni su Neoxa Core</translation>
+        <source>Show information about BlackRaven Core</source>
+        <translation>Mostra le informazioni su BlackRaven Core</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -394,16 +394,16 @@
         <translation>Firma il &amp;messaggio...</translation>
     </message>
     <message>
-        <source>Sign messages with your Neoxa addresses to prove you own them</source>
-        <translation>Firma i messaggi con il tuo indirizzo Neoxa per dimostrare che li possiedi</translation>
+        <source>Sign messages with your BlackRaven addresses to prove you own them</source>
+        <translation>Firma i messaggi con il tuo indirizzo BlackRaven per dimostrare che li possiedi</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
         <translation>&amp;Verifica messaggio...</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Neoxa addresses</source>
-        <translation>Verificare i messaggi per assicurarsi che sono firmati con gli indirizzi specificati di Neoxa</translation>
+        <source>Verify messages to ensure they were signed with specified BlackRaven addresses</source>
+        <translation>Verificare i messaggi per assicurarsi che sono firmati con gli indirizzi specificati di BlackRaven</translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -482,16 +482,16 @@
         <translation>Apri &amp;URI...</translation>
     </message>
     <message>
-        <source>Open a neoxa: URI or payment request</source>
-        <translation>Apri un neoxa: URI o una richiesta di pagamento</translation>
+        <source>Open a blackraven: URI or payment request</source>
+        <translation>Apri un blackraven: URI o una richiesta di pagamento</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Opzioni riga di &amp;comando</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Neoxa command-line options</source>
-        <translation>Mostra il messaggio di aiuto di %1 per ottenere una lista di opzioni di comando per Neoxa </translation>
+        <source>Show the %1 help message to get a list with possible BlackRaven command-line options</source>
+        <translation>Mostra il messaggio di aiuto di %1 per ottenere una lista di opzioni di comando per BlackRaven </translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -526,8 +526,8 @@
         <translation>Barra degli strumenti "Tabs"</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Neoxa network</source>
-        <translation><numerusform>%n connessione attiva alla rete Neoxa</numerusform><numerusform>%n connessioni attive alla rete Neoxa</numerusform></translation>
+        <source>%n active connection(s) to BlackRaven network</source>
+        <translation><numerusform>%n connessione attiva alla rete BlackRaven</numerusform><numerusform>%n connessioni attive alla rete BlackRaven</numerusform></translation>
     </message>
     <message>
         <source>Network activity disabled</source>
@@ -894,8 +894,8 @@
         <translation>Modifica indirizzo d'invio</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Neoxa address.</source>
-        <translation>L'indirizzo inserito "%1" non é un indirizzo Neoxa valido</translation>
+        <source>The entered address "%1" is not a valid BlackRaven address.</source>
+        <translation>L'indirizzo inserito "%1" non é un indirizzo BlackRaven valido</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -992,8 +992,8 @@
         <translation>Informazioni di Private Send</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Neoxa in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 NEOX, 0.01 NEOX, 0.1 NEOX, 1 NEOX and 10 NEOX -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "smartnodes." These smartnodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the smartnodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The smartnode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.neoxa.org/en/stable/wallets/neoxacore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
-        <translation>&lt;h3&gt;PrivateSend Nozioni di base&lt;/h3&gt; PrivateSend ti offre una vera privacy oscurando le origini dei tuoi fondi. Il totale dei Neoxa nel tuo portafoglio è composto da diversi "input" che puoi immaginare come monete separate e discrete.&lt;br&gt; PrivateSend utilizza un processo innovativo per mescolare i tuoi input con quelli di altre due persone, senza che le tue monete lascino mai il tuo portafoglio. Mantenete il controllo dei vostri fondi in ogni momento.&lt;hr&gt; &lt;b&gt;Il processo PrivateSend funziona in questo modo:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend inizia suddividendo gli input della tua transazione in tagli standard. Queste denominazioni sono 0,001 NEOX, 0,01 NEOX, 0,1 NEOX, 1 NEOX e 10 NEOX - un po 'come la carta moneta che usi ogni giorno.&lt;/li&gt; &lt;li&gt;Il tuo portafoglio invia quindi richieste a nodi software appositamente configurati sulla rete, chiamati "smartnodes". Questi smartnode vengono informati che sei interessato a mescolare una determinata denominazione. Nessuna informazione identificabile viene inviata ai smartnodes, quindi non sanno mai "chi" sei.&lt;/li&gt; &lt;li&gt;Quando altre due persone inviano messaggi simili, indicando che desiderano mescolare la stessa denominazione, inizia una sessione di miscelazione. Il smartnode mescola gli input e indica ai portafogli di tutti e tre gli utenti di restituire gli input ora trasformati a se stessi. Il tuo portafoglio paga quella denominazione direttamente a se stesso, ma in un indirizzo diverso (chiamato cambia indirizzo).&lt;/li&gt; &lt;li&gt;Al fine di oscurare completamente i tuoi fondi, il tuo portafoglio deve ripetere questo processo più volte con ciascuna denominazione. Ogni volta che il processo è completato, viene chiamato "round". Ogni round di PrivateSend rende esponenzialmente più difficile determinare da dove provengono i tuoi fondi.&lt;/li&gt; &lt;li&gt;Questo processo di miscelazione avviene in background senza alcun intervento da parte tua. Quando desideri effettuare una transazione, i tuoi fondi saranno già mescolati. Non è richiesta alcuna ulteriore attesa.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANTE:&lt;/b&gt; Il tuo portafoglio contiene solo 1000 di questi "indirizzi di modifica". Ogni volta che si verifica un evento di missaggio, vengono utilizzati fino a 9 indirizzi. Ciò significa che quei 1000 indirizzi durano per circa 100 eventi di missaggio. Quando ne vengono utilizzati 900, il tuo portafoglio deve creare più indirizzi. Può farlo, tuttavia, solo se sono abilitati i backup automatici.&lt;br&gt; Di conseguenza, gli utenti che hanno disattivato i backup avranno anche PrivateSend disabilitato. &lt;hr&gt;Per ulteriori informazioni, consultare il &lt;a href="https://docs.neoxa.org/en/stable/wallets/neoxacore/privatesend-instantsend.html"&gt;documentazione PrivateSend &lt;/a&gt;.</translation>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the BlackRaven in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.001 NEOX, 0.01 NEOX, 0.1 NEOX, 1 NEOX and 10 NEOX -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "smartnodes." These smartnodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the smartnodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The smartnode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be mixed. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more information, see the &lt;a href="https://docs.blackraven.org/en/stable/wallets/blackravencore/privatesend-instantsend.html"&gt;PrivateSend documentation&lt;/a&gt;.</source>
+        <translation>&lt;h3&gt;PrivateSend Nozioni di base&lt;/h3&gt; PrivateSend ti offre una vera privacy oscurando le origini dei tuoi fondi. Il totale dei BlackRaven nel tuo portafoglio è composto da diversi "input" che puoi immaginare come monete separate e discrete.&lt;br&gt; PrivateSend utilizza un processo innovativo per mescolare i tuoi input con quelli di altre due persone, senza che le tue monete lascino mai il tuo portafoglio. Mantenete il controllo dei vostri fondi in ogni momento.&lt;hr&gt; &lt;b&gt;Il processo PrivateSend funziona in questo modo:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend inizia suddividendo gli input della tua transazione in tagli standard. Queste denominazioni sono 0,001 NEOX, 0,01 NEOX, 0,1 NEOX, 1 NEOX e 10 NEOX - un po 'come la carta moneta che usi ogni giorno.&lt;/li&gt; &lt;li&gt;Il tuo portafoglio invia quindi richieste a nodi software appositamente configurati sulla rete, chiamati "smartnodes". Questi smartnode vengono informati che sei interessato a mescolare una determinata denominazione. Nessuna informazione identificabile viene inviata ai smartnodes, quindi non sanno mai "chi" sei.&lt;/li&gt; &lt;li&gt;Quando altre due persone inviano messaggi simili, indicando che desiderano mescolare la stessa denominazione, inizia una sessione di miscelazione. Il smartnode mescola gli input e indica ai portafogli di tutti e tre gli utenti di restituire gli input ora trasformati a se stessi. Il tuo portafoglio paga quella denominazione direttamente a se stesso, ma in un indirizzo diverso (chiamato cambia indirizzo).&lt;/li&gt; &lt;li&gt;Al fine di oscurare completamente i tuoi fondi, il tuo portafoglio deve ripetere questo processo più volte con ciascuna denominazione. Ogni volta che il processo è completato, viene chiamato "round". Ogni round di PrivateSend rende esponenzialmente più difficile determinare da dove provengono i tuoi fondi.&lt;/li&gt; &lt;li&gt;Questo processo di miscelazione avviene in background senza alcun intervento da parte tua. Quando desideri effettuare una transazione, i tuoi fondi saranno già mescolati. Non è richiesta alcuna ulteriore attesa.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANTE:&lt;/b&gt; Il tuo portafoglio contiene solo 1000 di questi "indirizzi di modifica". Ogni volta che si verifica un evento di missaggio, vengono utilizzati fino a 9 indirizzi. Ciò significa che quei 1000 indirizzi durano per circa 100 eventi di missaggio. Quando ne vengono utilizzati 900, il tuo portafoglio deve creare più indirizzi. Può farlo, tuttavia, solo se sono abilitati i backup automatici.&lt;br&gt; Di conseguenza, gli utenti che hanno disattivato i backup avranno anche PrivateSend disabilitato. &lt;hr&gt;Per ulteriori informazioni, consultare il &lt;a href="https://docs.blackraven.org/en/stable/wallets/blackravencore/privatesend-instantsend.html"&gt;documentazione PrivateSend &lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
@@ -1039,8 +1039,8 @@
         <translation>Verranno salvati circa %1 GB di dati in questa cartella.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the Neoxa block chain.</source>
-        <translation>%1 scaricherà e salverà una copia della block chain di Neoxa.</translation>
+        <source>%1 will download and store a copy of the BlackRaven block chain.</source>
+        <translation>%1 scaricherà e salverà una copia della block chain di BlackRaven.</translation>
     </message>
     <message>
         <source>The wallet will also be stored in this directory.</source>
@@ -1185,12 +1185,12 @@
         <translation>Modulo</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the Neoxa network, as detailed below.</source>
-        <translation>Le transazioni recenti potrebbero non essere ancora visibili, perciò il saldo del tuo portafoglio potrebbe non essere corretto. Questa informazione risulterà corretta quando il tuo portafoglio avrà terminato la sincronizzazione con la rete Neoxa, come indicato in dettaglio più sotto.</translation>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the BlackRaven network, as detailed below.</source>
+        <translation>Le transazioni recenti potrebbero non essere ancora visibili, perciò il saldo del tuo portafoglio potrebbe non essere corretto. Questa informazione risulterà corretta quando il tuo portafoglio avrà terminato la sincronizzazione con la rete BlackRaven, come indicato in dettaglio più sotto.</translation>
     </message>
     <message>
-        <source>Attempting to spend Neoxa that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Il tentativo di spendere i Neoxa interessati da transazioni non ancora visualizzate non sarà accettato dalla rete.</translation>
+        <source>Attempting to spend BlackRaven that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>Il tentativo di spendere i BlackRaven interessati da transazioni non ancora visualizzate non sarà accettato dalla rete.</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1331,12 +1331,12 @@
         <translation>Saldo target PrivateSend</translation>
     </message>
     <message>
-        <source>Automatically open the Neoxa Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Apri automaticamente la porta utilizzata dal client Neoxa Core nel router. Funziona solo se il router supporta UPnP ed è attivato.</translation>
+        <source>Automatically open the BlackRaven Core client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Apri automaticamente la porta utilizzata dal client BlackRaven Core nel router. Funziona solo se il router supporta UPnP ed è attivato.</translation>
     </message>
     <message>
-        <source>Connect to the Neoxa network through a SOCKS5 proxy.</source>
-        <translation>Connetti alla rete Neoxa attraverso un SOCKS5 proxy</translation>
+        <source>Connect to the BlackRaven network through a SOCKS5 proxy.</source>
+        <translation>Connetti alla rete BlackRaven attraverso un SOCKS5 proxy</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1439,8 +1439,8 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the Neoxa network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Connetti alla rete Neoxa attraverso un proxy SOCKS5 separato per Tor.</translation>
+        <source>Connect to the BlackRaven network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Connetti alla rete BlackRaven attraverso un proxy SOCKS5 separato per Tor.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -1484,9 +1484,9 @@
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/projects/p/neoxa/</source>
+https://www.transifex.com/projects/p/blackraven/</source>
         <translation>La tua lingua manca o la traduzione è incompleta? Contribuisci alla traduzione qui: 
-https://www.transifex.com/projects/p/neoxa/</translation>
+https://www.transifex.com/projects/p/blackraven/</translation>
     </message>
     <message>
         <source>User Interface Theme:</source>
@@ -1564,8 +1564,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Modulo</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Neoxa network after a connection is established, but this process has not completed yet.</source>
-        <translation>Le informazioni visualizzate potrebbero essere vecchie. Il portafoglio si sincronizza automaticamente con la rete Neoxa dopo che una connessione viene stabilita, ma questo processo non è stato ancora completato.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the BlackRaven network after a connection is established, but this process has not completed yet.</source>
+        <translation>Le informazioni visualizzate potrebbero essere vecchie. Il portafoglio si sincronizza automaticamente con la rete BlackRaven dopo che una connessione viene stabilita, ma questo processo non è stato ancora completato.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1801,8 +1801,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Errore di richiesta di pagamento</translation>
     </message>
     <message>
-        <source>Cannot start neoxa: click-to-pay handler</source>
-        <translation>Impossibile avviare neoxa: gestore click-to-pay</translation>
+        <source>Cannot start blackraven: click-to-pay handler</source>
+        <translation>Impossibile avviare blackraven: gestore click-to-pay</translation>
     </message>
     <message>
         <source>URI handling</source>
@@ -1817,8 +1817,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Indirizzo di pagamento non valido: %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Neoxa address or malformed URI parameters.</source>
-        <translation>Impossibile interpretare l'URI! La causa puó essere un indirizzo Neoxa non valido o parametri URI non corretti.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid BlackRaven address or malformed URI parameters.</source>
+        <translation>Impossibile interpretare l'URI! La causa puó essere un indirizzo BlackRaven non valido o parametri URI non corretti.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1915,8 +1915,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Importo</translation>
     </message>
     <message>
-        <source>Enter a Neoxa address (e.g. %1)</source>
-        <translation>Inserire un indirizzo Neoxa (e.g. %1)</translation>
+        <source>Enter a BlackRaven address (e.g. %1)</source>
+        <translation>Inserire un indirizzo BlackRaven (e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2441,8 +2441,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>R&amp;iusa un indirizzo di ricezione (non raccomandato)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Neoxa network.</source>
-        <translation>Messaggio opzionale da allegare alla richiesta di pagamento, che verrà visualizzato quando la richiesta verrà aperta. Nota: il messaggio non sarà inviato insieme al pagamento nel network Neoxa.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the BlackRaven network.</source>
+        <translation>Messaggio opzionale da allegare alla richiesta di pagamento, che verrà visualizzato quando la richiesta verrà aperta. Nota: il messaggio non sarà inviato insieme al pagamento nel network BlackRaven.</translation>
     </message>
     <message>
         <source>&amp;Message:</source>
@@ -2453,8 +2453,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Un'etichetta facoltativa da associare al nuovo indirizzo di ricezione</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Neoxa network.</source>
-        <translation>Messaggio facoltativo da allegare alla richiesta di pagamento, che verrà visualizzato all'apertura della richiesta.&lt;br&gt; Nota: il messaggio non verrà inviato con il pagamento sulla rete di Neoxa.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the BlackRaven network.</source>
+        <translation>Messaggio facoltativo da allegare alla richiesta di pagamento, che verrà visualizzato all'apertura della richiesta.&lt;br&gt; Nota: il messaggio non verrà inviato con il pagamento sulla rete di BlackRaven.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -2611,7 +2611,7 @@ https://www.transifex.com/projects/p/neoxa/</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Invia neoxa</translation>
+        <translation>Invia blackraven</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -2690,8 +2690,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Se la tariffa personalizzata è impostata su 1000 duff e la transazione è di soli 250 byte, paga solo 250 duff "per kilobyte" di Fee, &lt;br /&gt;mentre paga "almeno"  1000 duff. Per le transazioni più grandi di un kilobyte pagate entrambi per kilobyte.</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for neoxa transactions than the network can process.</source>
-        <translation>Pagare solo la commissione minima va bene finché il volume di transazioni è minore rispetto allo spazio nei blocchi. &lt;br /&gt;Ma sii consapevole che questo potrebbe risultare in una transazione non confermata, una volta che ci fosse più richiesta di transazioni di Neoxa di quanto la rete possa elaborare.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for blackraven transactions than the network can process.</source>
+        <translation>Pagare solo la commissione minima va bene finché il volume di transazioni è minore rispetto allo spazio nei blocchi. &lt;br /&gt;Ma sii consapevole che questo potrebbe risultare in una transazione non confermata, una volta che ci fosse più richiesta di transazioni di BlackRaven di quanto la rete possa elaborare.</translation>
     </message>
     <message>
         <source>per kilobyte</source>
@@ -2839,7 +2839,7 @@ https://www.transifex.com/projects/p/neoxa/</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Conferma l'invio di neoxa</translation>
+        <translation>Conferma l'invio di blackraven</translation>
     </message>
     <message>
         <source>The recipient address is not valid. Please recheck.</source>
@@ -2886,8 +2886,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation><numerusform>Inizio della confirmazione stimato in %n blocco</numerusform><numerusform>Inizio del processo di conferma stimato in %n blocchi</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Invalid Neoxa address</source>
-        <translation>ATTENZIONE: Indirizzo Neoxa non valido</translation>
+        <source>Warning: Invalid BlackRaven address</source>
+        <translation>ATTENZIONE: Indirizzo BlackRaven non valido</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2917,8 +2917,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Paga &amp;a:</translation>
     </message>
     <message>
-        <source>The Neoxa address to send the payment to</source>
-        <translation>L'indirizzo Neoxa per inviare il pagamento a </translation>
+        <source>The BlackRaven address to send the payment to</source>
+        <translation>L'indirizzo BlackRaven per inviare il pagamento a </translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2953,8 +2953,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>I&amp;mporto:</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of Neoxa than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>La commissione verrà detratta dall'importo inviato. Il destinatario riceverà un importo inferiore di Neoxa rispetto a quello inserito nel campo dell'importo. Se sono selezionati più destinatari, la commissione verrà divisa in parti uguali.</translation>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive a lower amount of BlackRaven than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>La commissione verrà detratta dall'importo inviato. Il destinatario riceverà un importo inferiore di BlackRaven rispetto a quello inserito nel campo dell'importo. Se sono selezionati più destinatari, la commissione verrà divisa in parti uguali.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2969,8 +2969,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Messaggio:</translation>
     </message>
     <message>
-        <source>A message that was attached to the neoxa: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Neoxa network.</source>
-        <translation>Un messaggio allegato con l'URI neoxa che verrà memorizzato nella transazione per il tuo referente. Nota: questo messaggio non verrà inviato attraverso il network Neoxa.</translation>
+        <source>A message that was attached to the blackraven: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the BlackRaven network.</source>
+        <translation>Un messaggio allegato con l'URI blackraven che verrà memorizzato nella transazione per il tuo referente. Nota: questo messaggio non verrà inviato attraverso il network BlackRaven.</translation>
     </message>
     <message>
         <source>This is an unauthenticated payment request.</source>
@@ -3022,12 +3022,12 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>&amp;Firma il messaggio</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive Neoxa sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Puoi firmare messaggi /accordi con i tuoi indirizzi per dimostrare che puoi ricevere Neoxa inviati loro. Fai attenzione a non firmare nulla di vago o casuale, in quanto gli attacchi di phishing potrebbero cercare di ingannarti a firmare la tua identità. Firma solo le dichiarazioni dettagliate che ritieni di poter accettare.</translation>
+        <source>You can sign messages/agreements with your addresses to prove you can receive BlackRaven sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>Puoi firmare messaggi /accordi con i tuoi indirizzi per dimostrare che puoi ricevere BlackRaven inviati loro. Fai attenzione a non firmare nulla di vago o casuale, in quanto gli attacchi di phishing potrebbero cercare di ingannarti a firmare la tua identità. Firma solo le dichiarazioni dettagliate che ritieni di poter accettare.</translation>
     </message>
     <message>
-        <source>The Neoxa address to sign the message with</source>
-        <translation>L'indirizzo Neoxa con cui firmare il messaggio</translation>
+        <source>The BlackRaven address to sign the message with</source>
+        <translation>L'indirizzo BlackRaven con cui firmare il messaggio</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3058,8 +3058,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Copia la firma corrente nella clipboard</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Neoxa address</source>
-        <translation>Firma il messaggio per dimostrare il possesso di questo indirizzo Neoxa</translation>
+        <source>Sign the message to prove you own this BlackRaven address</source>
+        <translation>Firma il messaggio per dimostrare il possesso di questo indirizzo BlackRaven</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -3082,12 +3082,12 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Per verificare il messaggio inserire l'indirizzo del firmatario, il messaggio e la firma nei campi sottostanti, assicurandosi di copiare esattamente anche ritorni a capo, spazi, tabulazioni, etc.. Si raccomanda di non lasciarsi fuorviare dalla firma a leggere più di quanto non sia riportato nel testo del messaggio stesso, in modo da evitare di cadere vittima di attacchi di tipo man-in-the-middle. Si ricorda che la verifica della firma dimostra soltanto che il firmatario può ricevere pagamenti con l'indirizzo corrispondente, non prova l'invio di alcuna transazione.</translation>
     </message>
     <message>
-        <source>The Neoxa address the message was signed with</source>
-        <translation>L'indirizzo Neoxa con cui era firmato il messaggio</translation>
+        <source>The BlackRaven address the message was signed with</source>
+        <translation>L'indirizzo BlackRaven con cui era firmato il messaggio</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Neoxa address</source>
-        <translation>Verifica il messaggio per assicurarti sia stato firmato con l'indirizzo Neoxa specificato</translation>
+        <source>Verify the message to ensure it was signed with the specified BlackRaven address</source>
+        <translation>Verifica il messaggio per assicurarti sia stato firmato con l'indirizzo BlackRaven specificato</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -3761,7 +3761,7 @@ https://www.transifex.com/projects/p/neoxa/</translation>
     </message>
 </context>
 <context>
-    <name>neoxa-core</name>
+    <name>blackraven-core</name>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
         <translation>Associa all'indirizzo indicato e resta permanentemente in ascolto su questo. Usa la notazione [host]:porta per l'IPv6</translation>
@@ -4319,8 +4319,8 @@ https://www.transifex.com/projects/p/neoxa/</translation>
         <translation>Chiave KeePassHttp per AES, comunicazione criptata con KeePass</translation>
     </message>
     <message>
-        <source>Disable all Neoxa specific functionality (Smartnodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
-        <translation>Disabilitare tutte le funzionalità specifiche di Neoxa (Smartnodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</translation>
+        <source>Disable all BlackRaven specific functionality (Smartnodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</source>
+        <translation>Disabilitare tutte le funzionalità specifiche di BlackRaven (Smartnodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)</translation>
     </message>
     <message>
         <source>%s file contains all private keys from this wallet. Do not share it with anyone!</source>
@@ -4829,8 +4829,8 @@ Non è possibile avviare un smartnode in modalità lite</translation>
         <translation>Opzioni server RPC:</translation>
     </message>
     <message>
-        <source>Neoxa Core</source>
-        <translation>Neoxa Core</translation>
+        <source>BlackRaven Core</source>
+        <translation>BlackRaven Core</translation>
     </message>
     <message>
         <source>The %s developers</source>
@@ -4957,8 +4957,8 @@ Non è possibile avviare un smartnode in modalità lite</translation>
         <translation>I peer in whitelist che si connettono dal dato indirizzo IP (es. 1.2.3.4) o dalla rete annotata CIDR (es. 1.2.3.0/24). Può essere specificato più volte.</translation>
     </message>
     <message>
-        <source>You are starting in lite mode, most Neoxa-specific functionality is disabled.</source>
-        <translation>Stai iniziando in modalità Lite, la maggior parte delle funzionalità specifiche di Neoxa è disabilitata.</translation>
+        <source>You are starting in lite mode, most BlackRaven-specific functionality is disabled.</source>
+        <translation>Stai iniziando in modalità Lite, la maggior parte delle funzionalità specifiche di BlackRaven è disabilitata.</translation>
     </message>
     <message>
         <source>%d of last 100 blocks have unexpected version</source>

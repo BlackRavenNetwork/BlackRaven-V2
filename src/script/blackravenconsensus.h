@@ -35,43 +35,43 @@ extern "C" {
 
 #define BITCOINCONSENSUS_API_VER 0
 
-typedef enum neoxaconsensus_error_t
+typedef enum blackravenconsensus_error_t
 {
-    neoxaconsensus_ERR_OK = 0,
-    neoxaconsensus_ERR_TX_INDEX,
-    neoxaconsensus_ERR_TX_SIZE_MISMATCH,
-    neoxaconsensus_ERR_TX_DESERIALIZE,
-    neoxaconsensus_ERR_AMOUNT_REQUIRED,
-    neoxaconsensus_ERR_INVALID_FLAGS,
-} neoxaconsensus_error;
+    blackravenconsensus_ERR_OK = 0,
+    blackravenconsensus_ERR_TX_INDEX,
+    blackravenconsensus_ERR_TX_SIZE_MISMATCH,
+    blackravenconsensus_ERR_TX_DESERIALIZE,
+    blackravenconsensus_ERR_AMOUNT_REQUIRED,
+    blackravenconsensus_ERR_INVALID_FLAGS,
+} blackravenconsensus_error;
 
 /** Script verification flags */
 enum
 {
-    neoxaconsensus_SCRIPT_FLAGS_VERIFY_NONE                = 0,
-    neoxaconsensus_SCRIPT_FLAGS_VERIFY_P2SH                = (1U << 0), // evaluate P2SH (BIP16) subscripts
-    neoxaconsensus_SCRIPT_FLAGS_VERIFY_DERSIG              = (1U << 2), // enforce strict DER (BIP66) compliance
-    neoxaconsensus_SCRIPT_FLAGS_VERIFY_NULLDUMMY           = (1U << 4), // enforce NULLDUMMY (BIP147)
-    neoxaconsensus_SCRIPT_FLAGS_VERIFY_CHECKLOCKTIMEVERIFY = (1U << 9), // enable CHECKLOCKTIMEVERIFY (BIP65)
-    neoxaconsensus_SCRIPT_FLAGS_VERIFY_CHECKSEQUENCEVERIFY = (1U << 10), // enable CHECKSEQUENCEVERIFY (BIP112)
-    neoxaconsensus_SCRIPT_FLAGS_VERIFY_WITNESS             = (1U << 11), // enable WITNESS (BIP141)
-    neoxaconsensus_SCRIPT_FLAGS_VERIFY_ALL                 = neoxaconsensus_SCRIPT_FLAGS_VERIFY_P2SH | neoxaconsensus_SCRIPT_FLAGS_VERIFY_DERSIG |
-                                                               neoxaconsensus_SCRIPT_FLAGS_VERIFY_NULLDUMMY | neoxaconsensus_SCRIPT_FLAGS_VERIFY_CHECKLOCKTIMEVERIFY |
-                                                               neoxaconsensus_SCRIPT_FLAGS_VERIFY_CHECKSEQUENCEVERIFY | neoxaconsensus_SCRIPT_FLAGS_VERIFY_WITNESS
+    blackravenconsensus_SCRIPT_FLAGS_VERIFY_NONE                = 0,
+    blackravenconsensus_SCRIPT_FLAGS_VERIFY_P2SH                = (1U << 0), // evaluate P2SH (BIP16) subscripts
+    blackravenconsensus_SCRIPT_FLAGS_VERIFY_DERSIG              = (1U << 2), // enforce strict DER (BIP66) compliance
+    blackravenconsensus_SCRIPT_FLAGS_VERIFY_NULLDUMMY           = (1U << 4), // enforce NULLDUMMY (BIP147)
+    blackravenconsensus_SCRIPT_FLAGS_VERIFY_CHECKLOCKTIMEVERIFY = (1U << 9), // enable CHECKLOCKTIMEVERIFY (BIP65)
+    blackravenconsensus_SCRIPT_FLAGS_VERIFY_CHECKSEQUENCEVERIFY = (1U << 10), // enable CHECKSEQUENCEVERIFY (BIP112)
+    blackravenconsensus_SCRIPT_FLAGS_VERIFY_WITNESS             = (1U << 11), // enable WITNESS (BIP141)
+    blackravenconsensus_SCRIPT_FLAGS_VERIFY_ALL                 = blackravenconsensus_SCRIPT_FLAGS_VERIFY_P2SH | blackravenconsensus_SCRIPT_FLAGS_VERIFY_DERSIG |
+                                                               blackravenconsensus_SCRIPT_FLAGS_VERIFY_NULLDUMMY | blackravenconsensus_SCRIPT_FLAGS_VERIFY_CHECKLOCKTIMEVERIFY |
+                                                               blackravenconsensus_SCRIPT_FLAGS_VERIFY_CHECKSEQUENCEVERIFY | blackravenconsensus_SCRIPT_FLAGS_VERIFY_WITNESS
 };
 
 /// Returns 1 if the input nIn of the serialized transaction pointed to by
 /// txTo correctly spends the scriptPubKey pointed to by scriptPubKey under
 /// the additional constraints specified by flags.
 /// If not nullptr, err will contain an error/success code for the operation
-EXPORT_SYMBOL int neoxaconsensus_verify_script(const unsigned char *scriptPubKey, unsigned int scriptPubKeyLen,
+EXPORT_SYMBOL int blackravenconsensus_verify_script(const unsigned char *scriptPubKey, unsigned int scriptPubKeyLen,
                                     const unsigned char *txTo        , unsigned int txToLen,
-                                    unsigned int nIn, unsigned int flags, neoxaconsensus_error* err);
-EXPORT_SYMBOL int neoxaconsensus_verify_script_with_amount(const unsigned char *scriptPubKey, unsigned int scriptPubKeyLen, int64_t amount,
+                                    unsigned int nIn, unsigned int flags, blackravenconsensus_error* err);
+EXPORT_SYMBOL int blackravenconsensus_verify_script_with_amount(const unsigned char *scriptPubKey, unsigned int scriptPubKeyLen, int64_t amount,
                                     const unsigned char *txTo        , unsigned int txToLen,
-                                    unsigned int nIn, unsigned int flags, neoxaconsensus_error* err);
+                                    unsigned int nIn, unsigned int flags, blackravenconsensus_error* err);
 
-EXPORT_SYMBOL unsigned int neoxaconsensus_version();
+EXPORT_SYMBOL unsigned int blackravenconsensus_version();
 
 #ifdef __cplusplus
 } // extern "C"
