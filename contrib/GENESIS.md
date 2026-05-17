@@ -19,7 +19,7 @@ Build dependencies (Ubuntu):
 sudo apt-get install build-essential libtool autotools-dev automake pkg-config \
   python3 bsdmainutils libssl-dev libevent-dev libboost-all-dev libgmp-dev \
   libminiupnpc-dev libzmq3-dev cmake
-cd ~/BlackRaven-V2/depends && make -j$(nproc)   # provides chiabls + boost
+cd ~/BlackRaven-V2/depends && make -j$(nproc)   # provides bls-dash + boost
 cd ..
 ./autogen.sh
 ./configure --prefix=$(pwd)/depends/x86_64-pc-linux-gnu --without-gui --disable-wallet

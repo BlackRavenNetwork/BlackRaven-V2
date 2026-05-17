@@ -1,4 +1,4 @@
-packages:=boost openssl libevent zeromq gmp chia_bls backtrace cmake
+packages:=boost openssl libevent zeromq gmp cmake bls-dash backtrace
 native_packages := native_b2
 
 qt_native_packages = native_protobuf
