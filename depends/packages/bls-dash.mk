@@ -10,12 +10,14 @@ $(package)_dependencies=gmp cmake
 $(package)_patches=relic-blake2-gcc11.patch
 
 define $(package)_preprocess_cmds
-  for i in $($(package)_patches); do patch -p1 < $($(package)_patch_dir)/$$$$i; done
+  for i in $($(package)_patches); do patch -p1 < $($(package)_patch_dir)/$$$$i; done && \
+  cp $(host_prefix)/include/gmp.h contrib/relic/include/
 endef
 
 define $(package)_set_vars
   $(package)_config_opts=-DCMAKE_INSTALL_PREFIX=$($(package)_staging_dir)/$(host_prefix)
-  $(package)_config_opts+= -DCMAKE_PREFIX_PATH=$($(package)_staging_dir)/$(host_prefix)
+  $(package)_config_opts+= -DCMAKE_PREFIX_PATH=$(host_prefix)
+  $(package)_config_opts+= -DGMP_INCLUDE_DIR=$(host_prefix)/include -DGMP_LIBRARY=$(host_prefix)/lib/libgmp.a
   $(package)_config_opts+= -DSTLIB=ON -DSHLIB=OFF -DSTBIN=ON
   $(package)_config_opts_linux=-DOPSYS=LINUX -DCMAKE_SYSTEM_NAME=Linux
   $(package)_config_opts_darwin=-DOPSYS=MACOSX -DCMAKE_SYSTEM_NAME=Darwin
@@ -35,13 +37,17 @@ endef
 define $(package)_config_cmds
   export CC="$($(package)_cc)" && \
   export CXX="$($(package)_cxx)" && \
-  export CFLAGS="$($(package)_cflags) $($(package)_cppflags)" && \
-  export CXXFLAGS="$($(package)_cxxflags) $($(package)_cppflags)" && \
+  export CFLAGS="-I$(host_prefix)/include $($(package)_cflags) $($(package)_cppflags)" && \
+  export CXXFLAGS="-I$(host_prefix)/include $($(package)_cxxflags) $($(package)_cppflags)" && \
+  export CPPFLAGS="-I$(host_prefix)/include $($(package)_cppflags)" && \
   export LDFLAGS="$($(package)_ldflags)" && \
   $(host_prefix)/bin/cmake .. $($(package)_config_opts)
 endef
 
 define $(package)_build_cmds
+  export CFLAGS="-I$(host_prefix)/include $($(package)_cflags) $($(package)_cppflags)" && \
+  export CXXFLAGS="-I$(host_prefix)/include $($(package)_cxxflags) $($(package)_cppflags)" && \
+  export CPPFLAGS="-I$(host_prefix)/include $($(package)_cppflags)" && \
   $(MAKE) $($(package)_build_opts) combined_custom
 endef
 
