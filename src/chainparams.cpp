@@ -15,8 +15,28 @@
 #include "arith_uint256.h"
 
 #include <assert.h>
+#include <cinttypes>
+#include <cstdlib>
+#include <cstring>
 
 #include "chainparamsseeds.h"
+#include "../contrib/genesis-values.h"
+
+/** BlackRaven v2 genesis (mainnet). UTC 2026-05-17T02:10:30Z — change only with a new chain. */
+static const char BLKR_MAINNET_GENESIS_MESSAGE[] =
+    "BlackRaven BLKR genesis 2026-05-17T02:10:30Z fair launch";
+static const uint32_t BLKR_MAINNET_GENESIS_TIME = 1778983830;
+/** BlackRaven v2 genesis (testnet). One hour after mainnet anchor. */
+static const char BLKR_TESTNET_GENESIS_MESSAGE[] =
+    "BlackRaven BLKR testnet genesis 2026-05-17T03:10:30Z";
+static const uint32_t BLKR_TESTNET_GENESIS_TIME = 1778987430;
+/** KawPoW genesis difficulty (same order of magnitude as V1 BlackRaven). */
+static const uint32_t BLKR_GENESIS_NBITS = 0x1f0fffff;
+
+/** Standard genesis coinbase P2PK (unspendable; same pattern as Bitcoin / Ravencoin). */
+static const CScript gGenesisOutputScript = CScript()
+    << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f")
+    << OP_CHECKSIG;
 static size_t lastCheckMnCount = 0;
 static int lastCheckHeight= 0;
 static bool lastCheckedLowLLMQParams = false;
@@ -45,9 +65,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "The Times 03/30/2021 Bitcoin is name of the game for new generation of firms";
-    const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
-    return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
+    return CreateGenesisBlock(BLKR_MAINNET_GENESIS_MESSAGE, gGenesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
 void CChainParams::UpdateVersionBitsParameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout, int64_t nWindowSize, int64_t nThreshold)
@@ -86,37 +104,43 @@ void CChainParams::UpdateLLMQChainLocks(Consensus::LLMQType llmqType) {
     consensus.llmqTypeChainLocks = llmqType;
 }
 
-static void FindMainNetGenesisBlock(uint32_t nTime, uint32_t nBits, const char* network)
+/** Mine a KawPoW genesis block; prints values to paste into chainparams. Build with -DBLKR_MINE_GENESIS. */
+static void FindGenesisBlock(const char* pszTimestamp, uint32_t nTime, uint32_t nBits, const char* network)
 {
-
-    CBlock block = CreateGenesisBlock(nTime, 0, nBits, 4, 5000 * COIN);
+    CBlock block = CreateGenesisBlock(pszTimestamp, gGenesisOutputScript, nTime, 0, nBits, 4, 5000 * COIN);
+    block.nHeight = 0;
 
     arith_uint256 bnTarget;
     bnTarget.SetCompact(block.nBits);
-    block.nNonce64 = -1;
+    block.nNonce64 = static_cast<uint64_t>(-1);
     for (uint32_t nNonce = 0; nNonce < UINT32_MAX; nNonce++) {
         block.nNonce = nNonce;
         block.nNonce64++;
         uint256 mix_hash;
         uint256 hash = block.GetHashFull(mix_hash);
         if (nNonce % 48 == 0) {
-        	printf("\nrnonce=%d, pow is %s\n", nNonce, hash.GetHex().c_str());
+            printf("\n[%s] nNonce=%u nNonce64=%" PRIu64 " pow=%s\n", network, nNonce,
+                block.nNonce64, hash.GetHex().c_str());
+            fflush(stdout);
         }
         if (UintToArith256(hash) <= bnTarget) {
             block.mix_hash = mix_hash;
-        	printf("\n%s net\n", network);
-        	printf("\ngenesis is %s\n", block.ToString().c_str());
-			printf("\npow is %s\n", hash.GetHex().c_str());
-			printf("\ngenesisNonce is %d\n", nNonce);
-			std::cout << "Genesis Merkle " << block.hashMerkleRoot.GetHex() << std::endl;
-        	return;
+            printf("\n=== %s genesis found ===\n", network);
+            printf("pszTimestamp=\"%s\"\n", pszTimestamp);
+            printf("nGenesisTime=%u\n", nTime);
+            printf("nBits=0x%08x\n", nBits);
+            printf("nNonce=%u\n", nNonce);
+            printf("nNonce64=%" PRIu64 "\n", block.nNonce64);
+            printf("mix_hash=%s\n", mix_hash.GetHex().c_str());
+            printf("hashGenesisBlock=%s\n", hash.GetHex().c_str());
+            printf("hashMerkleRoot=%s\n", block.hashMerkleRoot.GetHex().c_str());
+            printf("block=%s\n", block.ToString().c_str());
+            fflush(stdout);
+            return;
         }
-
     }
 
-    // This is very unlikely to happen as we start the devnet with a very low difficulty. In many cases even the first
-    // iteration of the above loop will give a result already
-    error("%sNetGenesisBlock: could not find %s genesis block",network, network);
+    error("%s: could not find %s genesis block", __func__, network);
     assert(false);
 }
 static Consensus::LLMQParams llmq200_2 = {
@@ -351,6 +375,12 @@ static Consensus::LLMQParams llmq400_85 = {
 class CMainParams : public CChainParams {
 public:
     CMainParams() {
+#ifdef BLKR_MINE_GENESIS
+#ifndef BLKR_MINE_TESTNET
+        FindGenesisBlock(BLKR_MAINNET_GENESIS_MESSAGE, BLKR_MAINNET_GENESIS_TIME, BLKR_GENESIS_NBITS, "main");
+        std::exit(0);
+#endif
+#endif
         strNetworkID = "main";
         consensus.nSubsidyHalvingInterval = 3200000; // ~6 years at 1 min blocks; 5000 * interval * 2 = 32B BLKR max supply
         consensus.fSmartnodesEnabled = false;
@@ -434,13 +464,27 @@ public:
         pchMessageStart[3] = 0x52; // R
         nDefaultPort = 8669;
         nPruneAfterHeight = 100000;
-        // TODO(BLKR v2): Mine a new genesis (new timestamp/message) before mainnet; asserts below are upstream placeholders.
-        uint32_t nGenesisTime = 1651442858;
-
-        genesis = CreateGenesisBlock(nGenesisTime, 3244753, 0x1e00ffff, 4, 5000 * COIN);
-        consensus.hashGenesisBlock = genesis.GetX16RHash();
-        assert(consensus.hashGenesisBlock == uint256S("0000000a50fdaaf22f1c98b8c61559e15ab2269249aa1fb20683180703cdbf07"));
-        assert(genesis.hashMerkleRoot == uint256S("7c1d71731b98c560a80cee3b88993c8c863342b9661894304fd843bf7e75a41f"));
+        genesis = CreateGenesisBlock(
+            BLKR_MAINNET_GENESIS_MESSAGE,
+            gGenesisOutputScript,
+            BLKR_MAINNET_GENESIS_TIME,
+            0u,
+            BLKR_GENESIS_NBITS,
+            4,
+            5000 * COIN);
+        genesis.nHeight = 0;
+        genesis.nNonce = BLKR_MAINNET_GENESIS_NONCE;
+        genesis.nNonce64 = BLKR_MAINNET_GENESIS_NONCE64;
+        genesis.mix_hash = uint256S(BLKR_MAINNET_GENESIS_MIX);
+        {
+            uint256 genesisMix;
+            consensus.hashGenesisBlock = genesis.GetHashFull(genesisMix);
+            genesis.mix_hash = genesisMix;
+        }
+#if BLKR_MAINNET_GENESIS_MINED
+        assert(consensus.hashGenesisBlock == uint256S(BLKR_MAINNET_GENESIS_POW));
+        assert(genesis.hashMerkleRoot == uint256S(BLKR_MAINNET_GENESIS_MERKLE));
+#endif
 
         vSeeds.emplace_back("seed1.blackraven.network", false);
         vSeeds.emplace_back("seed2.blackraven.network", false);
@@ -483,16 +527,14 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("0000000a50fdaaf22f1c98b8c61559e15ab2269249aa1fb20683180703cdbf07")},
+                {0, consensus.hashGenesisBlock},
             }
         };
 
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the BlackRaven chain
-        	1662386772, // * UNIX timestamp of last known number of transactions 2021-06-18 22:03:06 UTC
-            130153,    // * total number of transactions between genesis and that timestamp
-                        //   (the tx=... number in the SetBestChain debug.log lines)
-            0.05014635153727871       // * estimated number of transactions per second after that timestamp
+            BLKR_MAINNET_GENESIS_TIME,
+            0,
+            0.0
         };
 
          // Burn Amounts
@@ -533,6 +575,12 @@ public:
 class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
+#ifdef BLKR_MINE_GENESIS
+#ifdef BLKR_MINE_TESTNET
+        FindGenesisBlock(BLKR_TESTNET_GENESIS_MESSAGE, BLKR_TESTNET_GENESIS_TIME, BLKR_GENESIS_NBITS, "test");
+        std::exit(0);
+#endif
+#endif
         strNetworkID = "test";
         consensus.fSmartnodesEnabled = false;
         consensus.nSubsidyHalvingInterval = 3200000;
@@ -615,16 +663,28 @@ public:
         nDefaultPort = 4572;
         nPruneAfterHeight = 1000;
         
-        uint32_t nGenesisTime = 1685977420;  // Sunday, 22 May 2022 19:26:45
-        //FindMainNetGenesisBlock(nGenesisTime, 0x20001fff, "test");    
+        genesis = CreateGenesisBlock(
+            BLKR_TESTNET_GENESIS_MESSAGE,
+            gGenesisOutputScript,
+            BLKR_TESTNET_GENESIS_TIME,
+            0u,
+            BLKR_GENESIS_NBITS,
+            4,
+            5000 * COIN);
+        genesis.nHeight = 0;
+        genesis.nNonce = BLKR_TESTNET_GENESIS_NONCE;
+        genesis.nNonce64 = BLKR_TESTNET_GENESIS_NONCE64;
+        genesis.mix_hash = uint256S(BLKR_TESTNET_GENESIS_MIX);
+        {
+            uint256 genesisMix;
+            consensus.hashGenesisBlock = genesis.GetHashFull(genesisMix);
+            genesis.mix_hash = genesisMix;
+        }
+#if BLKR_TESTNET_GENESIS_MINED
+        assert(consensus.hashGenesisBlock == uint256S(BLKR_TESTNET_GENESIS_POW));
+        assert(genesis.hashMerkleRoot == uint256S(BLKR_TESTNET_GENESIS_MERKLE));
+#endif
 
-        genesis = CreateGenesisBlock(nGenesisTime, 2250, 0x20001fff, 4, 5000 * COIN);
-        uint256 mix_hash;
-        consensus.hashGenesisBlock = genesis.GetHashFull(mix_hash);
-        genesis.mix_hash = mix_hash;
-        assert(consensus.hashGenesisBlock == uint256S("000b93d1594035cc0ebe80bc5f69e3cebfbf80069480c8f64e7f974d1627d8a6"));
-        assert(genesis.hashMerkleRoot == uint256S("7c1d71731b98c560a80cee3b88993c8c863342b9661894304fd843bf7e75a41f"));		
-		
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
@@ -670,15 +730,14 @@ public:
 
         checkpointData = (CCheckpointData) {
             {
+                {0, consensus.hashGenesisBlock},
             }
         };
 
         chainTxData = ChainTxData{
-        	// Update as we know more about the contents of the BlackRaven chain
-            //1658331968, // * UNIX timestamp of last known number of transactions
-            //4108,     // * total number of transactions between genesis and that timestamp
-                        //   (the tx=... number in the SetBestChain debug.log lines)
-           // 0.01518114964117619        // * estimated number of transactions per second after that timestamp
+            BLKR_TESTNET_GENESIS_TIME,
+            0,
+            0.0
         };
 
         /** BLACKRAVEN Start **/
