@@ -260,17 +260,17 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the blackraven.org server
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the blackraven.network server
 
-- Update blackraven.org
+- Update blackraven.network
 
 - Announce the release:
 
-  - Release on BlackRaven forum: https://www.blackraven.org/forum/topic/official-announcements.54/
+  - Release on BlackRaven forum: https://www.blackraven.network/forum/topic/official-announcements.54/
 
   - Optionally Discord, twitter, reddit /r/BlackRaven, ... but this will usually sort out itself
 
-  - Notify flare so that he can start building [the PPAs](https://launchpad.net/~blackraven.org/+archive/ubuntu/blackraven)
+  - Notify flare so that he can start building [the PPAs](https://launchpad.net/~blackraven.network/+archive/ubuntu/blackraven)
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 

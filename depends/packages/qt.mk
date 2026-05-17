@@ -99,6 +99,9 @@ $(package)_config_opts_aarch64_linux = -xplatform linux-aarch64-gnu-g++
 $(package)_config_opts_mingw32  = -no-opengl -xplatform win32-g++ -device-option CROSS_COMPILE="$(host)-"
 $(package)_build_env  = QT_RCC_TEST=1
 $(package)_build_env += QT_RCC_SOURCE_DATE_OVERRIDE=1
+# Parallel bootstrap breaks uic link (cppwriteinitialization.o race); see Qt 5.9 + gcc.
+$(package)_config_env += MAKEFLAGS=
+$(package)_build_env += MAKEFLAGS=
 endef
 
 define $(package)_fetch_cmds
@@ -143,7 +146,10 @@ define $(package)_preprocess_cmds
   patch -p1 -i $($(package)_patch_dir)/xkb-default.patch &&\
   echo "!host_build: QMAKE_CFLAGS     += $($(package)_cflags) $($(package)_cppflags)" >> qtbase/mkspecs/common/gcc-base.conf && \
   echo "!host_build: QMAKE_CXXFLAGS   += $($(package)_cxxflags) $($(package)_cppflags)" >> qtbase/mkspecs/common/gcc-base.conf && \
+  echo "QMAKE_CXXFLAGS += -include limits" >> qtbase/mkspecs/common/g++-base.conf && \
   echo "!host_build: QMAKE_LFLAGS     += $($(package)_ldflags)" >> qtbase/mkspecs/common/gcc-base.conf && \
+  sed -i.old "/#include <QtCore\\/qfloat16.h>/a #include <limits>" qtbase/src/corelib/global/qendian.h && \
+  sed -i.old "/#include <QtCore\\/qbytearray.h>/a #include <limits>" qtbase/src/corelib/tools/qbytearraymatcher.h && \
   patch -p1 -i $($(package)_patch_dir)/no-xlib.patch &&\
   echo "QMAKE_LINK_OBJECT_MAX = 10" >> qtbase/mkspecs/win32-g++/qmake.conf &&\
   echo "QMAKE_LINK_OBJECT_SCRIPT = object_script" >> qtbase/mkspecs/win32-g++/qmake.conf &&\
@@ -168,10 +174,10 @@ define $(package)_config_cmds
 endef
 
 define $(package)_build_cmds
-  $(MAKE) -C src $(addprefix sub-,$($(package)_qt_libs)) && \
-  $(MAKE) -C ../qttools/src/linguist/lrelease && \
-  $(MAKE) -C ../qttools/src/linguist/lupdate && \
-  $(MAKE) -C ../qttranslations
+  $(MAKE) -j1 -C src $(addprefix sub-,$($(package)_qt_libs)) && \
+  $(MAKE) -j1 -C ../qttools/src/linguist/lrelease && \
+  $(MAKE) -j1 -C ../qttools/src/linguist/lupdate && \
+  $(MAKE) -j1 -C ../qttranslations
 endef
 
 define $(package)_stage_cmds

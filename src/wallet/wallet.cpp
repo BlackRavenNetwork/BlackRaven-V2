@@ -6283,11 +6283,11 @@ CWallet* CWallet::CreateWalletFromFile(const std::string walletFile)
     if (gArgs.GetBoolArg("-upgradewallet", fFirstRun))
     {
         int nMaxVersion = gArgs.GetArg("-upgradewallet", 0);
-        if (nMaxVersion == 0) // the -upgradewallet without argument case
+        const bool fUpgradeToLatest = (nMaxVersion == 0);
+        if (fUpgradeToLatest) // the -upgradewallet without argument case
         {
             LogPrintf("Performing wallet upgrade to %i\n", FEATURE_LATEST);
-            nMaxVersion = CLIENT_VERSION;
-            walletInstance->SetMinVersion(FEATURE_LATEST); // permanently upgrade the wallet immediately
+            nMaxVersion = FEATURE_LATEST;
         }
         else
             LogPrintf("Allowing wallet upgrade up to %i\n", nMaxVersion);
@@ -6297,6 +6297,8 @@ CWallet* CWallet::CreateWalletFromFile(const std::string walletFile)
             return nullptr;
         }
         walletInstance->SetMaxVersion(nMaxVersion);
+        if (fUpgradeToLatest)
+            walletInstance->SetMinVersion(FEATURE_LATEST); // permanently upgrade the wallet immediately
     }
 
     if (fFirstRun)

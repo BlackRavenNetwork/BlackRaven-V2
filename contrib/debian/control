@@ -1,8 +1,8 @@
 Source: blackraven
 Section: utils
 Priority: optional
-Maintainer: Holger Schinzel <holger@blackraven.org>
-Uploaders: Holger Schinzel <holger@blackraven.org>
+Maintainer: Holger Schinzel <holger@blackraven.network>
+Uploaders: Holger Schinzel <holger@blackraven.network>
 Build-Depends: debhelper,
  devscripts,
  automake,
@@ -26,7 +26,7 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: https://www.blackraven.org/
+Homepage: https://www.blackraven.network/
 Vcs-Git: git://github.com/The-BlackRaven-Endeavor/blackraven.git
 Vcs-Browser: https://github.com/The-BlackRaven-Endeavor/blackraven
 

@@ -33,6 +33,15 @@ static const uint32_t BLKR_TESTNET_GENESIS_TIME = 1778987430;
 /** KawPoW genesis difficulty (same order of magnitude as V1 BlackRaven). */
 static const uint32_t BLKR_GENESIS_NBITS = 0x1f0fffff;
 
+/*
+ * Re-mine genesis (from repo root, after depends + configure):
+ *   cd src && rm -f libblackraven_common_a-chainparams.o
+ *   g++ ... -DBLKR_MINE_GENESIS -c -o libblackraven_common_a-chainparams.o chainparams.cpp
+ *   make blackravend && mkdir -p /tmp/blkgen && ./blackravend -datadir=/tmp/blkgen
+ * Testnet: add -DBLKR_MINE_TESTNET to the g++ line (see contrib/mine-genesis.sh).
+ * Paste printed values into contrib/genesis-values.h and set BLKR_*_GENESIS_MINED to 1.
+ */
+
 /** Standard genesis coinbase P2PK (unspendable; same pattern as Bitcoin / Ravencoin). */
 static const CScript gGenesisOutputScript = CScript()
     << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f")
@@ -462,7 +471,7 @@ public:
         pchMessageStart[1] = 0x4c; // L
         pchMessageStart[2] = 0x4b; // K
         pchMessageStart[3] = 0x52; // R
-        nDefaultPort = 8669;
+        nDefaultPort = 9777;
         nPruneAfterHeight = 100000;
         genesis = CreateGenesisBlock(
             BLKR_MAINNET_GENESIS_MESSAGE,
@@ -475,19 +484,21 @@ public:
         genesis.nHeight = 0;
         genesis.nNonce = BLKR_MAINNET_GENESIS_NONCE;
         genesis.nNonce64 = BLKR_MAINNET_GENESIS_NONCE64;
+#if BLKR_MAINNET_GENESIS_MINED
         genesis.mix_hash = uint256S(BLKR_MAINNET_GENESIS_MIX);
+        consensus.hashGenesisBlock = uint256S(BLKR_MAINNET_GENESIS_POW);
+        assert(genesis.hashMerkleRoot == uint256S(BLKR_MAINNET_GENESIS_MERKLE));
+#else
         {
             uint256 genesisMix;
             consensus.hashGenesisBlock = genesis.GetHashFull(genesisMix);
             genesis.mix_hash = genesisMix;
         }
-#if BLKR_MAINNET_GENESIS_MINED
-        assert(consensus.hashGenesisBlock == uint256S(BLKR_MAINNET_GENESIS_POW));
-        assert(genesis.hashMerkleRoot == uint256S(BLKR_MAINNET_GENESIS_MERKLE));
 #endif
 
         vSeeds.emplace_back("seed1.blackraven.network", false);
         vSeeds.emplace_back("seed2.blackraven.network", false);
+        vSeeds.emplace_back("seed3.blackraven.network", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,25); // B
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,122);
@@ -500,8 +511,8 @@ public:
 
         // 0.5% of block subsidy to dev treasury (50 basis points); scales with halvings automatically.
         vector<FounderRewardStructure> rewardStructures = { {INT_MAX, 50} };
-        // TODO(mainnet): set operational dev/treasury address (P2PKH prefix B) before launch.
-        consensus.nFounderPayment = FounderPayment(rewardStructures, 1, "BDevFeeTreasurySetBeforeMainnetLaunch1");
+        // BlackRaven Development / Treasury Fee Address - Updated for v0.1.0 launch
+        consensus.nFounderPayment = FounderPayment(rewardStructures, 1, "B75r9F5RG37pDjKWumQyF7e8V5EDZXW7W2");
         consensus.nSpecialRewardShare = Consensus::SpecialRewardShare(0.0, 1.0, 0.0);
         consensus.nCollaterals = SmartnodeCollaterals({}, {{INT_MAX, 0}});
 
@@ -521,7 +532,7 @@ public:
         nPoolMaxParticipants = 5;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
 
-        vSporkAddresses = {"GdJwLvyP6jgJxtA2MEdonzcC9dj8XLsurZ"};
+        vSporkAddresses = {"BHBaqWKyMi7NE99yW5hE8h4gNqh4aH6sFP"};
         nMinSporkKeys = 1;
         fBIP9CheckSmartnodesUpgraded = false;
 
@@ -548,20 +559,18 @@ public:
         nIssueRestrictedAssetBurnAmount = 1500 * COIN;
         nAddNullQualifierTagBurnAmount = .1 * COIN;
 
-        // Burn Addresses
-	    strIssueAssetBurnAddress = "GcmKXqWrFrbDnywuY8F3orEnNR5L1g2mZQ";
-        strReissueAssetBurnAddress = "GX61EFYjZdXKWAY5UsBt5sLxHkWaqjBL59";
-        strIssueSubAssetBurnAddress = "GNgg3bLoGocLD9iU2W1gw3McHipzfZ8R13";
-        strIssueUniqueAssetBurnAddress = "GKXyGTyzibPLhPpTpvqqBK3SJBz8gp7Kfa";
-        strIssueMsgChannelAssetBurnAddress = "GMm13zRL8eGjZxYXfiCN1zCJFHiL5HkMYa";
-        strIssueQualifierAssetBurnAddress = "GZW36RFFgRWcCQ3cN1qWJGC6z4EAqgt7M6";
-        strIssueSubQualifierAssetBurnAddress = "GcDdxyK7JCuQfg83SxFHRpD8QHFivbdYjZ";
-        strIssueRestrictedAssetBurnAddress = "GcDdxyK7JCuQfg83SxFHRpD8QHFivbdYjZ";
-        strAddNullQualifierTagBurnAddress = "GTfS34Z3CrzXSPEmGx9xpjw7PShUC93YFi";
-        //Global Burn Address
-        strGlobalBurnAddress = "GeNvn7GXr1aLqhDx9HG9aYWnPA5qoRsz9X";
-        // ProofOfGame Address
-        strCommunityAutonomousAddress = "GTbBCJzqRWyFBMrap2fY39eZaXnLnojJ3F";
+        // Burn Addresses (unspendable sinks; deterministic placeholders — document before launch)
+	    strIssueAssetBurnAddress = "1BSrfxDfwZaKp5ZccJTMSKERGzkZry8u5Ao";
+        strReissueAssetBurnAddress = "BCuf7Zghzuca6V6xs1mbGXsia7tug15LTw";
+        strIssueSubAssetBurnAddress = "B6hBVCpU3Tm2Lsg5WunE5HxNCEPt5cAkrr";
+        strIssueUniqueAssetBurnAddress = "BR5Xm54JgcVxU8NAufKor91EAK4DUMLmB9";
+        strIssueMsgChannelAssetBurnAddress = "B7HnraAtb8jbBwm3oVkLhSPZckCyT7h6Hr";
+        strIssueQualifierAssetBurnAddress = "BGbX2cJk3vS4Wvrt8qmPCrfaApQNtK9dwu";
+        strIssueSubQualifierAssetBurnAddress = "BE6rb2uC3vktwpvfxQz9ZbwseXoTbovjXP";
+        strIssueRestrictedAssetBurnAddress = "BLU2iZqXgzksy7JHWwTkMmgD7cbGDuHdsa";
+        strAddNullQualifierTagBurnAddress = "BBfeHERECJVoHjhEJNoZ6SAB12xwzkDsKw";
+        strGlobalBurnAddress = "B6Fs26rSsXSvc64hF4D3qocJXxUHzbDqnZ";
+        strCommunityAutonomousAddress = "BQCXTPcf6zrGqMjoKrVA6FCDwA2JUB56rL";
 
         nAssetActivationHeight = 1; // Asset activated block height
         nMessagingActivationBlock = 1; // Messaging activated block height
@@ -660,7 +669,7 @@ public:
         pchMessageStart[1] = 0x63;
         pchMessageStart[2] = 0x56;
         pchMessageStart[3] = 0x65;
-        nDefaultPort = 4572;
+        nDefaultPort = 19777;
         nPruneAfterHeight = 1000;
         
         genesis = CreateGenesisBlock(
@@ -674,21 +683,24 @@ public:
         genesis.nHeight = 0;
         genesis.nNonce = BLKR_TESTNET_GENESIS_NONCE;
         genesis.nNonce64 = BLKR_TESTNET_GENESIS_NONCE64;
+#if BLKR_TESTNET_GENESIS_MINED
         genesis.mix_hash = uint256S(BLKR_TESTNET_GENESIS_MIX);
+        consensus.hashGenesisBlock = uint256S(BLKR_TESTNET_GENESIS_POW);
+        assert(genesis.hashMerkleRoot == uint256S(BLKR_TESTNET_GENESIS_MERKLE));
+#else
         {
             uint256 genesisMix;
             consensus.hashGenesisBlock = genesis.GetHashFull(genesisMix);
             genesis.mix_hash = genesisMix;
         }
-#if BLKR_TESTNET_GENESIS_MINED
-        assert(consensus.hashGenesisBlock == uint256S(BLKR_TESTNET_GENESIS_POW));
-        assert(genesis.hashMerkleRoot == uint256S(BLKR_TESTNET_GENESIS_MERKLE));
 #endif
 
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("testnet.blackraven.network", false);
+        vSeeds.emplace_back("seed1.blackraven.network", false);
+        vSeeds.emplace_back("seed2.blackraven.network", false);
+        vSeeds.emplace_back("seed3.blackraven.network", false);
 
         // Testnet BlackRaven addresses start with 'r'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,42);
@@ -724,7 +736,7 @@ public:
         nPoolMaxParticipants = 5;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        vSporkAddresses = {"JHEfoNN6kH4rB1C3teiPtBLG9rXHvPG6ix"};
+        vSporkAddresses = {"HywcYsXhK34BYzYn5E7KrA5nAcw9s6nxok"};
         nMinSporkKeys = 1;
         fBIP9CheckSmartnodesUpgraded = false;
 
@@ -842,7 +854,6 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        //vSeeds.push_back(CDNSSeedData("neoxaevo.org",  "devnet-seed.neoxaevo.org"));
 
         // Testnet BlackRaven addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
@@ -875,7 +886,7 @@ public:
         nPoolMaxParticipants = 5;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        vSporkAddresses = {"yjPtiKh2uwk3bDutTEA2q9mCtXyiZRWn55"};
+        vSporkAddresses = {"yhFZmDEbjFitV7GGDjNtYEmC3LLMEzVKXY"};
         nMinSporkKeys = 1;
         // devnets are started with no blocks and no MN, so we can't check for upgraded MN (as there are none)
         fBIP9CheckSmartnodesUpgraded = false;
@@ -975,7 +986,7 @@ public:
         nPoolMaxParticipants = 5;
 
         // privKey: cP4EKFyJsHT39LDqgdcB43Y3YXjNyjb5Fuas1GQSeAtjnZWmZEQK
-        vSporkAddresses = {"yj949n1UH6fDhw6HtVE5VMj2iSTaSWBMcW"};
+        vSporkAddresses = {"yTcZvSZeCFBmfKY54vVPMvs7nE6BwDdLEL"};
         nMinSporkKeys = 1;
         // regtest usually has no smartnodes in most tests, so don't check for upgraged MNs
         fBIP9CheckSmartnodesUpgraded = false;

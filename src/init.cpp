@@ -16,6 +16,7 @@
 #include "base58.h"
 #include "chain.h"
 #include "chainparams.h"
+#include "../contrib/genesis-values.h"
 #include "checkpoints.h"
 #include "compat/sanity.h"
 #include "consensus/validation.h"
@@ -1612,7 +1613,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
     }
     for (const auto& address: vSporkAddresses) {
         if (!sporkManager.SetSporkAddress(address)) {
-            return InitError(_("Invalid spork address specified with -sporkaddr"));
+            return InitError(strprintf(_("Invalid spork address: %s"), address));
         }
     }
 
@@ -2335,9 +2336,25 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
 
     // Wait for genesis block to be processed
     {
+        if (Params().NetworkIDString() == CBaseChainParams::MAIN && !BLKR_MAINNET_GENESIS_MINED) {
+            return InitError(_("Mainnet genesis is not mined yet. Run contrib/mine-genesis.sh, update "
+                               "contrib/genesis-values.h, delete blocks/ and chainstate/, then restart."));
+        }
+        if (Params().NetworkIDString() == CBaseChainParams::TESTNET && !BLKR_TESTNET_GENESIS_MINED) {
+            return InitError(_("Testnet genesis is not mined yet. Run contrib/mine-genesis.sh test, update "
+                               "contrib/genesis-values.h, delete blocks/ and chainstate/, then restart."));
+        }
         boost::unique_lock<boost::mutex> lock(cs_GenesisWait);
+        const int64_t nGenesisWaitStart = GetTime();
         while (!fHaveGenesis) {
-            condvar_GenesisWait.wait(lock);
+            if (fRequestShutdown) {
+                return false;
+            }
+            if (GetTime() - nGenesisWaitStart > 120) {
+                return InitError(_("Timed out waiting for genesis block. If you changed genesis parameters, "
+                                   "delete blocks/ and chainstate/ in the data directory and restart."));
+            }
+            condvar_GenesisWait.wait_for(lock, boost::chrono::seconds(1), [] { return fHaveGenesis; });
         }
         uiInterface.NotifyBlockTip.disconnect(BlockNotifyGenesisWait);
     }

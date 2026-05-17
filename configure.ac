@@ -5,7 +5,7 @@ define(_CLIENT_VERSION_MINOR, 1)
 define(_CLIENT_VERSION_REVISION, 0)
 define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
-define(_COPYRIGHT_YEAR, 2023)
+define(_COPYRIGHT_YEAR, 2026)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
 define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[BlackRaven]])
 AC_INIT([BlackRaven Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/BlackRavenNetwork/BlackRaven-V2/issues],[blackraven],[https://blackraven.network/])
@@ -1363,7 +1363,7 @@ fi
 
 AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
 
-AC_MSG_CHECKING([whether to build test_neoxa])
+AC_MSG_CHECKING([whether to build test_blackraven])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="yes"

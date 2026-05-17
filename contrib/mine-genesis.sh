@@ -3,52 +3,51 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-cd "$ROOT"
+cd "$ROOT/src"
 
 NETWORK="${1:-all}"
-JOBS="${JOBS:-$(nproc)}"
 HOST_PREFIX="${HOST_PREFIX:-$ROOT/depends/x86_64-pc-linux-gnu}"
+DEPFLAGS=(
+  -m64 -std=c++14 -DHAVE_CONFIG_H
+  -I. -I../src/config -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -I./obj
+  -DBOOST_SP_USE_STD_ATOMIC -DBOOST_AC_USE_STD_ATOMIC -pthread
+  -I"$HOST_PREFIX/include"
+  -I./leveldb/include -I./leveldb/helpers/memenv
+  -I./secp256k1/include -I./univalue/include
+  -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS
+  -fPIE -pipe -static-libstdc++ -O2 -g1 -fno-omit-frame-pointer
+)
 
-if [[ ! -f ./configure ]]; then
-  ./autogen.sh
-fi
-
-if [[ ! -f Makefile ]]; then
-  if [[ -d "$HOST_PREFIX" ]]; then
-    ./configure --prefix="$HOST_PREFIX" --without-gui --disable-wallet
-  else
-    echo "Run: cd depends && make -j\$(nproc)   OR install system deps and ./configure" >&2
-    ./configure --without-gui --disable-wallet
-  fi
-fi
+compile_mine_o() {
+  local net="$1"
+  local defs=(-DBLKR_MINE_GENESIS)
+  [[ "$net" == "test" ]] && defs+=(-DBLKR_MINE_TESTNET)
+  rm -f libblackraven_common_a-chainparams.o
+  g++ "${DEPFLAGS[@]}" "${defs[@]}" -c -o libblackraven_common_a-chainparams.o chainparams.cpp
+  ar rs libblackraven_common.a libblackraven_common_a-chainparams.o >/dev/null
+  make blackravend >/dev/null
+}
 
 mine_one() {
   local net="$1"
-  local extra_cflags
-  if [[ "$net" == "test" ]]; then
-    extra_cflags="-DBLKR_MINE_GENESIS -DBLKR_MINE_TESTNET"
-  else
-    extra_cflags="-DBLKR_MINE_GENESIS"
-  fi
-  echo "=== Mining $net genesis (KawPoW; may take several minutes) ==="
-  rm -f src/chainparams.o
-  make -j"$JOBS" AM_CXXFLAGS="$extra_cflags" CXXFLAGS="$extra_cflags" src/blackravend
-  ./src/blackravend -version 2>&1 | tee "/tmp/blk-genesis-mine-$net.log"
+  local datadir="/tmp/blk-genesis-mine-$net-$$"
+  local log="/tmp/blk-genesis-mine-$net.log"
+  mkdir -p "$datadir"
+  echo "=== Mining $net genesis (see $log) ==="
+  compile_mine_o "$net"
+  local args=(-datadir="$datadir")
+  [[ "$net" == "test" ]] && args+=(-testnet)
+  stdbuf -oL ./blackravend "${args[@]}" 2>&1 | tee "$log"
+  rm -rf "$datadir"
 }
 
 case "$NETWORK" in
   main) mine_one main ;;
   test) mine_one test ;;
-  all)
-    mine_one main
-    mine_one test
-    ;;
-  *)
-    echo "Usage: $0 [main|test|all]" >&2
-    exit 1
-    ;;
+  all) mine_one main; mine_one test ;;
+  *) echo "Usage: $0 [main|test|all]" >&2; exit 1 ;;
 esac
 
 echo ""
-echo "See /tmp/blk-genesis-mine-*.log for values to paste into contrib/genesis-values.h"
-echo "Set BLKR_*_GENESIS_MINED to 1 and rebuild."
+echo "Paste values from /tmp/blk-genesis-mine-*.log into contrib/genesis-values.h"
+echo "Set BLKR_*_GENESIS_MINED to 1, rebuild without BLKR_MINE_GENESIS."
