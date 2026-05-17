@@ -1,6 +1,7 @@
 package=qrencode
 $(package)_version=3.4.4
-$(package)_download_path=https://fukuchi.org/works/qrencode/
+# fukuchi.org/works/qrencode/ returns 404; MacPorts mirror matches the pinned sha256.
+$(package)_download_path=https://distfiles.macports.org/qrencode/
 $(package)_file_name=$(package)-$($(package)_version).tar.bz2
 $(package)_sha256_hash=efe5188b1ddbcbf98763b819b146be6a90481aac30cfc8d858ab78a19cde1fa5
 
