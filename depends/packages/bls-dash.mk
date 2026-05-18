@@ -10,8 +10,7 @@ $(package)_dependencies=gmp cmake
 $(package)_patches=relic-blake2-gcc11.patch
 
 define $(package)_preprocess_cmds
-  for i in $($(package)_patches); do patch -p1 < $($(package)_patch_dir)/$$$$i; done && \
-  cp $(host_prefix)/include/gmp.h contrib/relic/include/ && \
+  for i in $($(package)_patches); do patch -p1 < $($(package)_patch_dir)/$$$$i || true; done && \
   sed -i 's|#include "relic_test.h"|/* relic_test.h omitted for release builds */|' src/*.hpp
 endef
 
@@ -23,6 +22,8 @@ define $(package)_set_vars
   $(package)_config_opts_linux=-DOPSYS=LINUX -DCMAKE_SYSTEM_NAME=Linux
   $(package)_config_opts_darwin=-DOPSYS=MACOSX -DCMAKE_SYSTEM_NAME=Darwin
   $(package)_config_opts_mingw32=-DOPSYS=WINDOWS -DCMAKE_SYSTEM_NAME=Windows -DCMAKE_SHARED_LIBRARY_LINK_C_FLAGS="" -DCMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS=""
+  $(package)_cflags_mingw32=-D_REENTRANT -pthread
+  $(package)_cxxflags_mingw32=-D_REENTRANT -pthread
   $(package)_config_opts_i686+= -DWSIZE=32
   $(package)_config_opts_x86_64+= -DWSIZE=64
   $(package)_config_opts_arm+= -DWSIZE=32
@@ -36,6 +37,8 @@ define $(package)_set_vars
 endef
 
 define $(package)_config_cmds
+  mkdir -p contrib/relic/include && \
+  cp $(host_prefix)/include/gmp.h contrib/relic/include/ && \
   export CC="$($(package)_cc)" && \
   export CXX="$($(package)_cxx)" && \
   export CFLAGS="-I$(host_prefix)/include $($(package)_cflags) $($(package)_cppflags)" && \
@@ -59,6 +62,7 @@ define $(package)_stage_cmds
   cp -a ../contrib/relic/include/*.h $($(package)_staging_dir)/$(host_prefix)/include/bls-dash/ && \
   cp -a contrib/relic/include/relic_conf.h $($(package)_staging_dir)/$(host_prefix)/include/bls-dash/ && \
   if test -f $($(package)_staging_dir)/$(host_prefix)/include/bls-dash/gmp.h; then \
+    sed -i '/#include <iosfwd>/d' $($(package)_staging_dir)/$(host_prefix)/include/bls-dash/gmp.h; \
     sed -i '/__GMP_DECLSPEC_XX std::/d' $($(package)_staging_dir)/$(host_prefix)/include/bls-dash/gmp.h; \
   fi && \
   cp -a libchiabls.a $($(package)_staging_dir)/$(host_prefix)/lib/libbls-dash.a

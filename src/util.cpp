@@ -70,7 +70,9 @@
 #endif
 
 #include <io.h> /* for _commit */
+#define byte bitcoin_win_byte_compat
 #include <shlobj.h>
+#undef byte
 #endif
 
 #ifdef HAVE_SYS_PRCTL_H

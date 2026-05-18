@@ -33,9 +33,12 @@
 #ifndef NOMINMAX
 #define NOMINMAX
 #endif
+// MinGW + C++17: rpcndr.h 'byte' conflicts with std::byte from <cstddef>
+#define byte bitcoin_win_byte_compat
 #include "shellapi.h"
 #include "shlobj.h"
 #include "shlwapi.h"
+#undef byte
 #endif
 
 #include <boost/scoped_array.hpp>
