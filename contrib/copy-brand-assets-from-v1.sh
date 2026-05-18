@@ -21,8 +21,16 @@ cp -f "$ICONS_V1/blkr-512x512.png" "$ICONS_V2/blkr-512x512.png"
 cp -f "$ICONS_V1/blkrtext.png" "$ICONS_V2/blkrtext.png"
 cp -f "$ICONS_V1/blkrtext.png" "$IMAGES_V2/blackraven_logo_toolbar.png"
 cp -f "$ICONS_V1/blkrcointext.png" "$IMAGES_V2/blackraven_logo_horizontal.png"
+cp -f "$ICONS_V1/about.png" "$ICONS_V2/about.png"
 cp -f "$ICONS_V1/blkr.ico" "$ICONS_V2/blackraven.ico"
 cp -f "$ICONS_V1/raven_testnet.ico" "$ICONS_V2/blackraven_testnet.ico"
+
+PIXMAPS_V2="$ROOT/share/pixmaps"
+mkdir -p "$PIXMAPS_V2"
+cp -f "$ICONS_V2/blackraven.ico" "$PIXMAPS_V2/blackraven.ico"
+if [[ -f "$V1/share/pixmaps/raven128.png" ]]; then
+  cp -f "$V1/share/pixmaps/raven128.png" "$PIXMAPS_V2/blackraven128.png"
+fi
 
 python3 - "$ICONS_V1" "$IMAGES_V2" <<'PY'
 import sys

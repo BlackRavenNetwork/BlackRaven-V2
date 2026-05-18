@@ -1283,7 +1283,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../raptoreum.qrc"/>
+  <include location="../blackraven.qrc"/>
  </resources>
  <connections/>
  <buttongroups>

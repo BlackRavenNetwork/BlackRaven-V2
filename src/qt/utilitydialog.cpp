@@ -54,6 +54,11 @@ HelpMessageDialog::HelpMessageDialog(QWidget *parent, HelpMode helpMode) :
     {
         setWindowTitle(tr("About %1").arg(tr(PACKAGE_NAME)));
 
+        QLabel *logoLabel = new QLabel();
+        logoLabel->setPixmap(QPixmap(":/icons/blackraven").scaled(128, 128, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        logoLabel->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+        ui->verticalLayoutLogo->addWidget(logoLabel);
+
         /// HTML-format the license message from the core
         QString licenseInfo = QString::fromStdString(LicenseInfo());
         QString licenseInfoHTML = licenseInfo;
