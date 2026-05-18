@@ -35,7 +35,7 @@ if [[ ! -f Makefile ]]; then
   ./configure "${EXTRA[@]}"
 fi
 
-make -j"$JOBS" -C src blackravend blackraven-cli
+make -j"$JOBS" -C src blackravend blackraven-cli blackraven-tx
 if [[ "$WITH_GUI" == "yes" ]]; then
   make -j"$JOBS" -C src qt/blackraven-qt
 fi
@@ -44,4 +44,5 @@ echo ""
 echo "Built:"
 echo "  src/blackravend"
 echo "  src/blackraven-cli"
+echo "  src/blackraven-tx"
 [[ "$WITH_GUI" == "yes" ]] && echo "  src/qt/blackraven-qt"

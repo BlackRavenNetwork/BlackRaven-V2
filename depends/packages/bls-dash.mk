@@ -11,7 +11,8 @@ $(package)_patches=relic-blake2-gcc11.patch
 
 define $(package)_preprocess_cmds
   for i in $($(package)_patches); do patch -p1 < $($(package)_patch_dir)/$$$$i; done && \
-  cp $(host_prefix)/include/gmp.h contrib/relic/include/
+  cp $(host_prefix)/include/gmp.h contrib/relic/include/ && \
+  sed -i 's|#include "relic_test.h"|/* relic_test.h omitted for release builds */|' src/*.hpp
 endef
 
 define $(package)_set_vars
@@ -57,5 +58,8 @@ define $(package)_stage_cmds
   cp -a ../src/*.hpp $($(package)_staging_dir)/$(host_prefix)/include/bls-dash/ && \
   cp -a ../contrib/relic/include/*.h $($(package)_staging_dir)/$(host_prefix)/include/bls-dash/ && \
   cp -a contrib/relic/include/relic_conf.h $($(package)_staging_dir)/$(host_prefix)/include/bls-dash/ && \
+  if test -f $($(package)_staging_dir)/$(host_prefix)/include/bls-dash/gmp.h; then \
+    sed -i '/__GMP_DECLSPEC_XX std::/d' $($(package)_staging_dir)/$(host_prefix)/include/bls-dash/gmp.h; \
+  fi && \
   cp -a libchiabls.a $($(package)_staging_dir)/$(host_prefix)/lib/libbls-dash.a
 endef

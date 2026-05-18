@@ -110,7 +110,7 @@ if BUILD_BITCOIND
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += blackraven-cli #blackraven-tx
+  bin_PROGRAMS += blackraven-cli blackraven-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
@@ -704,7 +704,9 @@ blackraven_cli_LDADD += $(BACKTRACE_LIB) $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS
 #
 
 # blackraven-tx binary #
-blackraven_tx_SOURCES = blackraven-tx.cpp
+blackraven_tx_SOURCES = blackraven-tx.cpp \
+  assets/assets.cpp \
+  assets/assettypes.cpp
 blackraven_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 blackraven_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 blackraven_tx_LDFLAGS = $(LDFLAGS_WRAP_EXCEPTIONS) $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
@@ -721,7 +723,7 @@ blackraven_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-blackraven_tx_LDADD += $(BACKTRACE_LIB) $(BOOST_LIBS) $(CRYPTO_LIBS) $(BLS_LIBS)
+blackraven_tx_LDADD += $(BACKTRACE_LIB) $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(BLS_LIBS)
 #
 
 # blackravenconsensus library #

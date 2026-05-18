@@ -19,8 +19,17 @@
 #undef DOUBLE
 
 #include <array>
-#include <mutex>
+#include <memory>
+#include <vector>
+#ifndef _WIN32
 #include <unistd.h>
+#endif
+// Re-include after bls-dash/relic (MinGW can break std::mutex otherwise).
+#include <mutex>
+#if defined(__MINGW32__) || defined(__MINGW64__)
+#include <boost/thread/mutex.hpp>
+#include <boost/thread/locks.hpp>
+#endif
 
 // reversed BLS12-381
 #define BLS_CURVE_ID_SIZE 32
@@ -316,11 +325,21 @@ protected:
 };
 
 #ifndef BUILD_BITCOIN_INTERNAL
+#if defined(__MINGW32__) || defined(__MINGW64__)
+using BLRavenLazyMutex = boost::mutex;
+template<typename M>
+using BLRavenLazyLock = boost::unique_lock<M>;
+#else
+using BLRavenLazyMutex = std::mutex;
+template<typename M>
+using BLRavenLazyLock = std::unique_lock<M>;
+#endif
+
 template<typename BLSObject>
 class CBLSLazyWrapper
 {
 private:
-    mutable std::mutex mutex;
+    mutable BLRavenLazyMutex mutex;
 
     mutable char buf[BLSObject::SerSize];
     mutable bool bufValid{false};
@@ -345,7 +364,7 @@ public:
 
     CBLSLazyWrapper& operator=(const CBLSLazyWrapper& r)
     {
-        std::unique_lock<std::mutex> l(r.mutex);
+        BLRavenLazyLock<BLRavenLazyMutex> l(r.mutex);
         bufValid = r.bufValid;
         if (r.bufValid) {
             memcpy(buf, r.buf, sizeof(buf));
@@ -370,7 +389,7 @@ public:
     template<typename Stream>
     inline void Serialize(Stream& s) const
     {
-        std::unique_lock<std::mutex> l(mutex);
+        BLRavenLazyLock<BLRavenLazyMutex> l(mutex);
         if (!objInitialized && !bufValid) {
             throw std::ios_base::failure("obj and buf not initialized");
         }
@@ -385,7 +404,7 @@ public:
     template<typename Stream>
     inline void Unserialize(Stream& s)
     {
-        std::unique_lock<std::mutex> l(mutex);
+        BLRavenLazyLock<BLRavenLazyMutex> l(mutex);
         s.read(buf, sizeof(buf));
         bufValid = true;
         objInitialized = false;
@@ -394,7 +413,7 @@ public:
 
     void Set(const BLSObject& _obj)
     {
-        std::unique_lock<std::mutex> l(mutex);
+        BLRavenLazyLock<BLRavenLazyMutex> l(mutex);
         bufValid = false;
         objInitialized = true;
         obj = _obj;
@@ -402,7 +421,7 @@ public:
     }
     const BLSObject& Get() const
     {
-        std::unique_lock<std::mutex> l(mutex);
+        BLRavenLazyLock<BLRavenLazyMutex> l(mutex);
         static BLSObject invalidObj;
         if (!bufValid && !objInitialized) {
             return invalidObj;
@@ -438,7 +457,7 @@ public:
 
     uint256 GetHash() const
     {
-        std::unique_lock<std::mutex> l(mutex);
+        BLRavenLazyLock<BLRavenLazyMutex> l(mutex);
         if (!bufValid) {
             obj.GetBuf(buf, sizeof(buf));
             bufValid = true;

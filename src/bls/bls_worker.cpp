@@ -959,3 +959,26 @@ void CBLSWorker::PushSigVerifyBatch()
     sigVerifyBatchesInProgress++;
     workerPool.push(f, batch);
 }
+
+CBLSWorkerCache::CBLSWorkerCache(CBLSWorker& _worker) : worker(_worker) {}
+
+BLSVerificationVectorPtr CBLSWorkerCache::BuildQuorumVerificationVector(const uint256& cacheKey, const std::vector<BLSVerificationVectorPtr>& vvecs)
+{
+    return GetOrBuild(cacheKey, vvecCache, [&]() {
+        return worker.BuildQuorumVerificationVector(vvecs);
+    });
+}
+
+CBLSSecretKey CBLSWorkerCache::AggregateSecretKeys(const uint256& cacheKey, const BLSSecretKeyVector& skShares)
+{
+    return GetOrBuild(cacheKey, secretKeyShareCache, [&]() {
+        return worker.AggregateSecretKeys(skShares);
+    });
+}
+
+CBLSPublicKey CBLSWorkerCache::BuildPubKeyShare(const uint256& cacheKey, const BLSVerificationVectorPtr& vvec, const CBLSId& id)
+{
+    return GetOrBuild(cacheKey, publicKeyShareCache, [&]() {
+        return worker.BuildPubKeyShare(vvec, id);
+    });
+}

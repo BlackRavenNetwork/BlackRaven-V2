@@ -144,63 +144,6 @@ private:
     void PushSigVerifyBatch();
 };
 
-// Builds and caches different things from CBLSWorker
-// Cache keys are provided externally as computing hashes on BLS vectors is too expensive
-// If multiple threads try to build the same thing at the same time, only one will actually build it
-// and the other ones will wait for the result of the first caller
-class CBLSWorkerCache
-{
-private:
-    CBLSWorker& worker;
-
-    std::mutex cacheCs;
-    std::map<uint256, std::shared_future<BLSVerificationVectorPtr> > vvecCache;
-    std::map<uint256, std::shared_future<CBLSSecretKey> > secretKeyShareCache;
-    std::map<uint256, std::shared_future<CBLSPublicKey> > publicKeyShareCache;
-
-public:
-    CBLSWorkerCache(CBLSWorker& _worker) :
-        worker(_worker) {}
-
-    BLSVerificationVectorPtr BuildQuorumVerificationVector(const uint256& cacheKey, const std::vector<BLSVerificationVectorPtr>& vvecs)
-    {
-        return GetOrBuild(cacheKey, vvecCache, [&]() {
-            return worker.BuildQuorumVerificationVector(vvecs);
-        });
-    }
-    CBLSSecretKey AggregateSecretKeys(const uint256& cacheKey, const BLSSecretKeyVector& skShares)
-    {
-        return GetOrBuild(cacheKey, secretKeyShareCache, [&]() {
-            return worker.AggregateSecretKeys(skShares);
-        });
-    }
-    CBLSPublicKey BuildPubKeyShare(const uint256& cacheKey, const BLSVerificationVectorPtr& vvec, const CBLSId& id)
-    {
-        return GetOrBuild(cacheKey, publicKeyShareCache, [&]() {
-            return worker.BuildPubKeyShare(vvec, id);
-        });
-    }
-
-private:
-    template <typename T, typename Builder>
-    T GetOrBuild(const uint256& cacheKey, std::map<uint256, std::shared_future<T> >& cache, Builder&& builder)
-    {
-        cacheCs.lock();
-        auto it = cache.find(cacheKey);
-        if (it != cache.end()) {
-            auto f = it->second;
-            cacheCs.unlock();
-            return f.get();
-        }
-
-        std::promise<T> p;
-        cache.emplace(cacheKey, p.get_future());
-        cacheCs.unlock();
-
-        T v = builder();
-        p.set_value(v);
-        return v;
-    }
-};
+#include "bls_worker_cache.h"
 
 #endif //BLACKRAVEN_CRYPTO_BLS_WORKER_H
