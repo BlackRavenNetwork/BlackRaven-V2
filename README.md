@@ -6,7 +6,7 @@ Independent Layer-1 chain based on [Neoxa](https://github.com/NeoxaChain/Neoxa) 
 
 ## What is BlackRaven V2?
 
-BlackRaven V2 is a KawPoW proof-of-work blockchain with native asset issuance (Ravencoin-style assets), Dash-derived infrastructure code (governance hooks, BLS, etc.), and **smartnodes disabled** at launch. Block subsidies go to **miners (~99.5%)** and a **fixed 0.5% dev treasury** (basis points on the post-halving subsidy).
+BlackRaven V2 is a KawPoW proof-of-work blockchain with native asset issuance (Ravencoin-style assets), Dash-derived infrastructure code (governance hooks, BLS, etc.), and **smartnodes disabled** at launch. Mainnet block subsidies go entirely to miners; there is no mandatory dev treasury output in block templates.
 
 V1 ([BlackRavenNetwork/BlackRaven](https://github.com/BlackRavenNetwork/BlackRaven)) remains the separate Ravencoin-lineage tree; this repo is the Neoxa-lineage V2 transition.
 
@@ -20,7 +20,7 @@ V1 ([BlackRavenNetwork/BlackRaven](https://github.com/BlackRavenNetwork/BlackRav
 | Initial block reward | 5,000 BLKR |
 | Halving interval | 3,200,000 blocks |
 | Max supply (asymptotic) | 32,000,000,000 BLKR |
-| Reward split | 99.5% miner / 0.5% dev fee |
+| Reward split | 100% miner / no mandatory dev fee |
 | Smartnodes | Disabled (`fSmartnodesEnabled=false`) |
 | P2P port | 9777 |
 | RPC port | 9776 |
@@ -30,8 +30,6 @@ V1 ([BlackRavenNetwork/BlackRaven](https://github.com/BlackRavenNetwork/BlackRav
 | Genesis (mined) | `0001a5916e8deb24b32cfa5c8b97c0b40685bd7616a40cdc27088ce4c690bd1a` |
 
 Full design notes: [`contrib/blackraven-v2-chain-spec.txt`](contrib/blackraven-v2-chain-spec.txt). Genesis values: [`contrib/genesis-values.h`](contrib/genesis-values.h).
-
-**Before public launch:** set the operational dev-fee payout address (see TODO in `src/chainparams.cpp`).
 
 ## Binaries
 

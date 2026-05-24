@@ -32,12 +32,10 @@ CAmount FounderPayment::getFounderPaymentAmount(int blockHeight, CAmount blockRe
 void FounderPayment::FillFounderPayment(CMutableTransaction& txNew, int nBlockHeight, CAmount blockReward, CTxOut& txoutFounderRet) {
     // make sure it's not filled yet
 	CAmount founderPayment = getFounderPaymentAmount(nBlockHeight, blockReward);
-//	if(founderPayment == 0) {
-//	    LogPrintf("FounderPayment::FillFounderPayment -- Founder payment has not started\n");
-//	    return;
-//
-//	}
 	txoutFounderRet = CTxOut();
+	if(founderPayment <= 0) {
+	    return;
+	}
     CScript payee;
     // fill payee with the foundFounderRewardStrcutureFounderRewardStrcutureer address
     CBitcoinAddress cbAddress(founderAddress);

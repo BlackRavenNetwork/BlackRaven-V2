@@ -10,7 +10,6 @@
 ## Network launch
 - [ ] Deploy DNS seeds (`seed1.blackraven.network`, `seed2.blackraven.network`, `seed3.blackraven.network`)
 - [ ] Publish `blackraven.conf` example and port list (9777/9776)
-- [ ] Set operational dev-fee address in `chainparams.cpp` (replace placeholder)
 - [ ] Set operational spork keys (replace placeholder addresses)
 
 ## Distribution
