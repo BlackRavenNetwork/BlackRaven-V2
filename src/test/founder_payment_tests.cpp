@@ -1,4 +1,5 @@
 #include "amount.h"
+#include "chainparams.h"
 #include "founder_payment.h"
 #include "script/script.h"
 #include "test/test_blackraven.h"
@@ -55,6 +56,20 @@ BOOST_AUTO_TEST_CASE(active_founder_payment_adds_output)
 
     BOOST_REQUIRE_EQUAL(tx.vout.size(), 2U);
     BOOST_CHECK(txoutFounder == tx.vout[1]);
+    BOOST_CHECK_EQUAL(txoutFounder.nValue, 25 * COIN);
+    BOOST_CHECK_EQUAL(tx.vout[0].nValue, 4975 * COIN);
+}
+
+BOOST_AUTO_TEST_CASE(mainnet_founder_payment_is_half_percent)
+{
+    const auto chainParams = CreateChainParams(CBaseChainParams::MAIN);
+    FounderPayment founderPayment = chainParams->GetConsensus().nFounderPayment;
+    CMutableTransaction tx = CoinbaseWithMinerOutput(5000 * COIN);
+    CTxOut txoutFounder;
+
+    founderPayment.FillFounderPayment(tx, 1, 5000 * COIN, txoutFounder);
+
+    BOOST_REQUIRE_EQUAL(tx.vout.size(), 2U);
     BOOST_CHECK_EQUAL(txoutFounder.nValue, 25 * COIN);
     BOOST_CHECK_EQUAL(tx.vout[0].nValue, 4975 * COIN);
 }

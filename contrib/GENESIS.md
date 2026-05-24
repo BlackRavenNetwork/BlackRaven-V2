@@ -53,8 +53,9 @@ Default testnet P2P port: **4572**, RPC: **15425**, datadir suffix: `testv9`.
 
 ## After genesis is mined
 
-1. Replace BlackRaven-era **`G…` asset burn addresses** with `B…` burns or new constants.
-2. Point `testnet.blackraven.network` (or your seed) at a node with the new chain.
-3. Smoke-test block 1 subsidy payout to the miner.
+1. Set a real **`B…` dev fee address** in `chainparams.cpp` (`consensus.nFounderPayment`).
+2. Replace BlackRaven-era **`G…` asset burn addresses** with `B…` burns or new constants.
+3. Point `testnet.blackraven.network` (or your seed) at a node with the new chain.
+4. Smoke-test block 1 subsidy split (99.5% miner / 0.5% dev).
 
 Until `BLKR_MAINNET_GENESIS_MINED` is `1`, mainnet asserts are disabled and you should use **testnet** or **regtest** only.

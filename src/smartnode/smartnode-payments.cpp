@@ -171,7 +171,7 @@ bool IsBlockPayeeValid(const CTransaction& txNew, int nBlockHeight, CAmount bloc
     const Consensus::Params& consensusParams = Params().GetConsensus();
 
     if (!consensusParams.fSmartnodesEnabled) {
-        // PoW-only economics: subsidy (+ fees in coinbase) with no smartnode outputs.
+        // PoW-only economics: subsidy minus dev fee (+ fees in coinbase) with no smartnode outputs.
         if (txNew.GetValueOut() > blockReward + specialTxFees) {
             return false;
         }

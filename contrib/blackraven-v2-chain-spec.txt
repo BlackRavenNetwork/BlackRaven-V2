@@ -16,10 +16,12 @@ Consensus / economics
   Initial block reward:   5,000 BLKR (base subsidy before split)
   Block time:             ~1 minute
   Halving interval:       ~3,200,000 blocks (~6 years at 1 min)
-  Dev fee:                none; mainnet block templates do not require a
-                          FounderPayment/dev treasury coinbase output
+  Dev fee:                0.5% of block subsidy (50 basis points), forever
+                          — same % after every halving (fee = subsidy * 0.005)
+                          — used for exchange listings, promotion, ecosystem
+  Dev fee payout:         separate coinbase output (FounderPayment)
   Smartnodes:             DISABLED (fSmartnodesEnabled=false; no ProTx, no SN reward %)
-  Miner share:            100% of block subsidy
+  Miner share:            99.5% of block subsidy (remainder after 0.5% dev fee)
   InstantSend/ChainLocks: OFF (no LLMQ quorums without smartnodes)
 
 Network
@@ -51,7 +53,7 @@ Genesis (testnet)
 Phases
 ------
   1. Rebrand + string scrub (done on main)
-  2. Mine genesis (in progress)
+  2. Mine genesis + set dev B… address (in progress)
   3. regtest -> testnet -> mainnet
   4. Infra: seeds, explorer, pool, releases
 

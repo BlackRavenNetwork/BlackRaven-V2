@@ -509,9 +509,10 @@ public:
         // BLACKRAVEN BIP44 cointype in mainnet is '1668'
         nExtCoinType = 1668;
 
-        // Mainnet mining rewards should go entirely to the block template's miner payout.
-        // Leave founder payments inactive so pool software is not forced to add a fee payee.
-        consensus.nFounderPayment = FounderPayment({}, INT_MAX);
+        // 0.5% of block subsidy to dev treasury (50 basis points); scales with halvings automatically.
+        vector<FounderRewardStructure> rewardStructures = { {INT_MAX, 50} };
+        // BlackRaven Development / Treasury Fee Address - Updated for v0.1.0 launch
+        consensus.nFounderPayment = FounderPayment(rewardStructures, 1, "B75r9F5RG37pDjKWumQyF7e8V5EDZXW7W2");
         consensus.nSpecialRewardShare = Consensus::SpecialRewardShare(0.0, 1.0, 0.0);
         consensus.nCollaterals = SmartnodeCollaterals({}, {{INT_MAX, 0}});
 
