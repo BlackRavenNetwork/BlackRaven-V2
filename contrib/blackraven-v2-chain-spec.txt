@@ -19,7 +19,7 @@ Consensus / economics
   Dev fee:                0.5% of block subsidy (50 basis points), forever
                           — same % after every halving (fee = subsidy * 0.005)
                           — used for exchange listings, promotion, ecosystem
-  Dev fee payout:         separate coinbase output (FounderPayment); address TBD
+  Dev fee payout:         separate coinbase output (FounderPayment)
   Smartnodes:             DISABLED (fSmartnodesEnabled=false; no ProTx, no SN reward %)
   Miner share:            99.5% of block subsidy (remainder after 0.5% dev fee)
   InstantSend/ChainLocks: OFF (no LLMQ quorums without smartnodes)

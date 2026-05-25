@@ -8,6 +8,8 @@
 
 #include "tinyformat.h"
 
+#include <stdint.h>
+
 class CBatchedLogger
 {
 private:
