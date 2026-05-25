@@ -31,6 +31,8 @@ V1 ([BlackRavenNetwork/BlackRaven](https://github.com/BlackRavenNetwork/BlackRav
 
 Full design notes: [`contrib/blackraven-v2-chain-spec.txt`](contrib/blackraven-v2-chain-spec.txt). Genesis values: [`contrib/genesis-values.h`](contrib/genesis-values.h).
 
+**Before public launch:** set the operational dev-fee payout address (see TODO in `src/chainparams.cpp`).
+
 ## Binaries
 
 | Binary | Purpose |
